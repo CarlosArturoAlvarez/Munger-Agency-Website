@@ -48,11 +48,11 @@ const ContactPage = () => {
 
   return (
     <PageLayout>
-      <section className="lion-watermark py-24 sm:py-32 text-center">
+      <section className="lion-watermark py-16 sm:py-20 text-center">
         <div className="container-narrow px-4 sm:px-6 lg:px-8">
           <h1 className="font-serif text-4xl sm:text-5xl lg:text-6xl font-bold mb-6">
             Let's Talk —{" "}
-            <span className="text-gradient-green">We're Here For You</span>
+            <span className="text-foreground">We're Here For You</span>
           </h1>
         </div>
       </section>

@@ -7,7 +7,10 @@ const Footer = () => (
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
         {/* Brand */}
         <div className="lg:col-span-1">
-          <span className="font-serif text-2xl font-bold text-foreground">Munger Agency</span>
+          <div className="flex items-center gap-2">
+            <img src="/munger-lion-white.png" alt="Munger Agency lion" className="h-10 w-auto object-contain" style={{ mixBlendMode: "screen" }} />
+            <span className="font-serif text-2xl font-bold text-foreground">Munger Agency</span>
+          </div>
           <p className="mt-3 text-sm text-muted-foreground leading-relaxed">
             Protecting Your Life and Legacy
           </p>

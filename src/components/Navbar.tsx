@@ -21,6 +21,12 @@ const Navbar = () => {
     <nav className="fixed top-0 left-0 right-0 z-50 glass-card border-0 border-b border-foreground/10">
       <div className="container-narrow flex items-center justify-between h-16 sm:h-20 px-4 sm:px-6 lg:px-8">
         <Link to="/" className="flex items-center gap-2">
+          <img
+            src="/munger-lion-white.png"
+            alt="Munger Agency lion"
+            className="h-10 sm:h-12 w-auto object-contain"
+            style={{ mixBlendMode: "screen" }}
+          />
           <span className="font-serif text-xl sm:text-2xl font-bold tracking-tight text-foreground">
             Munger Agency
           </span>

@@ -1,4 +1,5 @@
 import { useState } from "react";
+import emailjs from "@emailjs/browser";
 import PageLayout from "@/components/PageLayout";
 import Section from "@/components/Section";
 import GlassCard from "@/components/GlassCard";
@@ -8,6 +9,17 @@ import {
   CheckCircle, Wifi, DollarSign, TrendingUp, Award,
   Flag, Calendar
 } from "lucide-react";
+
+// ─── EmailJS config ───────────────────────────────────────────────────────────
+// Replace these three values after setting up your EmailJS account:
+//   1. Go to https://www.emailjs.com and sign up (free)
+//   2. Add an Email Service (Gmail) → copy the Service ID
+//   3. Create an Email Template      → copy the Template ID
+//   4. Account → API Keys            → copy the Public Key
+const EMAILJS_SERVICE_ID  = "YOUR_SERVICE_ID";
+const EMAILJS_TEMPLATE_ID = "YOUR_TEMPLATE_ID";
+const EMAILJS_PUBLIC_KEY  = "YOUR_PUBLIC_KEY";
+// ─────────────────────────────────────────────────────────────────────────────
 
 const checklist = [
   "You're motivated and self-directed",
@@ -67,21 +79,27 @@ const CareersPage = () => {
 
     setLoading(true);
     try {
-      await fetch("https://hooks.zapier.com/hooks/catch/XXXXXXX/XXXXXXX/", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        mode: "no-cors",
-        body: JSON.stringify({
-          ...form,
-          licenseTypes: form.licenseTypes.join(", "),
-          timestamp: new Date().toISOString(),
-          source_url: window.location.href,
-        }),
-      });
-      toast({ title: "Application Sent", description: "Thank you! We'll be in touch soon." });
+      await emailjs.send(
+        EMAILJS_SERVICE_ID,
+        EMAILJS_TEMPLATE_ID,
+        {
+          full_name:       form.fullName,
+          email:           form.email,
+          phone:           form.phone,
+          states_licensed: form.statesLicensed || "N/A",
+          npn:             form.npn || "N/A",
+          license_types:   form.licenseTypes.length ? form.licenseTypes.join(", ") : "None selected",
+          experience:      form.experience || "N/A",
+          military:        form.military || "N/A",
+          source:          form.source || "N/A",
+          submitted_at:    new Date().toLocaleString("en-US", { timeZone: "America/Chicago" }),
+        },
+        EMAILJS_PUBLIC_KEY
+      );
+      toast({ title: "Application Sent! 🎉", description: "Thank you! Kathleen will be in touch with you soon." });
       setForm({ fullName: "", email: "", phone: "", statesLicensed: "", npn: "", licenseTypes: [], experience: "", military: "", contractor: false, source: "" });
     } catch {
-      toast({ title: "Error", description: "Something went wrong. Please try again.", variant: "destructive" });
+      toast({ title: "Error", description: "Something went wrong. Please try again or email mungeragency@yahoo.com directly.", variant: "destructive" });
     } finally {
       setLoading(false);
     }
@@ -90,11 +108,11 @@ const CareersPage = () => {
   return (
     <PageLayout>
       {/* Hero */}
-      <section className="lion-watermark py-24 sm:py-32 text-center">
+      <section className="lion-watermark py-16 sm:py-20 text-center">
         <div className="container-narrow px-4 sm:px-6 lg:px-8">
           <h1 className="font-serif text-4xl sm:text-5xl lg:text-6xl font-bold mb-6">
             Build Your Agency.{" "}
-            <span className="text-gradient-green">Build Your Legacy.</span>
+            <span className="text-foreground">Build Your Legacy.</span>
           </h1>
           <p className="max-w-2xl mx-auto text-lg text-muted-foreground leading-relaxed">
             We're growing — and we're looking for motivated individuals who want to help families
@@ -134,22 +152,31 @@ const CareersPage = () => {
 
       {/* Military */}
       <Section>
-        <GlassCard className="max-w-3xl mx-auto border-l-2 border-primary">
-          <div className="flex items-start gap-4">
-            <Flag size={28} className="text-foreground shrink-0 mt-1" />
-            <div>
-              <h3 className="font-serif text-xl font-bold mb-3">Military Personnel Welcome</h3>
-              <p className="text-sm text-foreground/90 leading-relaxed mb-4">
-                We are proud to hire Military personnel currently serving US-based, retiring, and military spouses.
-                The insurance industry offers a flexible, rewarding career that aligns perfectly with the
-                discipline, leadership, and service mindset of our military community.
+        <div className="max-w-4xl mx-auto">
+          <div className="flex items-center gap-3 mb-6">
+            <Flag size={28} className="text-primary shrink-0" />
+            <h2 className="font-serif text-3xl sm:text-4xl font-bold">Military Personnel Welcome</h2>
+          </div>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+            <div className="space-y-4">
+              <p className="text-foreground/90 leading-relaxed">
+                We are proud to welcome Military personnel — currently serving US-based, retiring, and military spouses — to the Munger Agency family.
+              </p>
+              <p className="text-foreground/90 leading-relaxed">
+                The insurance industry offers a flexible, rewarding career that aligns perfectly with the discipline, leadership, and service mindset of our military community. Watch Kathleen's interview with a veteran below to hear firsthand why this career path is a natural fit.
               </p>
               <a href="https://calendly.com/mungeragency/clientcall" target="_blank" rel="noopener noreferrer">
                 <Button variant="hero" size="default">Let's Chat <Calendar size={16} /></Button>
               </a>
             </div>
+            <div className="rounded-xl overflow-hidden shadow-2xl bg-black aspect-video">
+              <video className="w-full h-full object-cover" controls playsInline>
+                <source src="/veteran-interview.mp4" type="video/mp4" />
+                Your browser does not support the video tag.
+              </video>
+            </div>
           </div>
-        </GlassCard>
+        </div>
       </Section>
 
       {/* Application Form */}

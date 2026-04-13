@@ -24,11 +24,11 @@ const charities = [
 
 const CharitablePage = () => (
   <PageLayout>
-    <section className="lion-watermark py-24 sm:py-32 text-center">
+    <section className="lion-watermark py-16 sm:py-20 text-center">
       <div className="container-narrow px-4 sm:px-6 lg:px-8">
         <h1 className="font-serif text-4xl sm:text-5xl lg:text-6xl font-bold mb-6">
           Charitable{" "}
-          <span className="text-gradient-green">Contributions</span>
+          <span className="text-foreground">Contributions</span>
         </h1>
         <p className="max-w-2xl mx-auto text-lg text-muted-foreground">
           Being of service and doing good in the world is one of our core values.

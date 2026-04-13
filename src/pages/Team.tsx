@@ -1,3 +1,4 @@
+import CarrierTicker from "@/components/CarrierTicker";
 import PageLayout from "@/components/PageLayout";
 import Section from "@/components/Section";
 import GlassCard from "@/components/GlassCard";
@@ -15,11 +16,11 @@ const partners = [
 
 const TeamPage = () => (
   <PageLayout>
-    <section className="lion-watermark py-24 sm:py-32 text-center">
+    <section className="lion-watermark py-16 sm:py-20 text-center">
       <div className="container-narrow px-4 sm:px-6 lg:px-8">
         <h1 className="font-serif text-4xl sm:text-5xl lg:text-6xl font-bold mb-6">
           Our Team &amp;{" "}
-          <span className="text-gradient-green">Trusted Partners</span>
+          <span className="text-foreground">Trusted Partners</span>
         </h1>
         <p className="max-w-2xl mx-auto text-lg text-muted-foreground">
           You can count on us — and the network of professionals we trust most.
@@ -73,15 +74,9 @@ const TeamPage = () => (
 
     {/* Carrier Partners */}
     <Section>
-      <h2 className="font-serif text-3xl font-bold text-center mb-4">A Few of Our Trusted Insurance Carrier Partners</h2>
-      <p className="text-center text-muted-foreground mb-12">We work with 30+ A-rated carriers to find the best coverage for you.</p>
-      <div className="grid grid-cols-3 sm:grid-cols-4 lg:grid-cols-6 gap-4">
-        {Array.from({ length: 12 }).map((_, i) => (
-          <GlassCard key={i} className="aspect-[3/2] flex items-center justify-center p-4" hover={false}>
-            <span className="text-xs text-muted-foreground/50 font-sans">Carrier {i + 1}</span>
-          </GlassCard>
-        ))}
-      </div>
+      <h2 className="font-serif text-3xl font-bold text-center mb-2">A Few of Our Trusted Insurance Carrier Partners</h2>
+      <p className="text-center text-muted-foreground mb-8">We work with 30+ A-rated carriers to find the best coverage for you.</p>
+      <CarrierTicker />
     </Section>
   </PageLayout>
 );
