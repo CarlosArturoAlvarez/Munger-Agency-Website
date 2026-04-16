@@ -3,20 +3,38 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- TODO: Set the document title to the name of your application -->
-    <title>Lovable App</title>
-    <meta name="description" content="Lovable Generated Project" />
-    <meta name="author" content="Lovable" />
+    <title>Munger Agency — Protecting Your Life and Legacy</title>
+    <link rel="icon" id="favicon" type="image/png" href="/munger-lion-white.png" />
+    <script>
+      (function () {
+        var img = new Image();
+        img.src = '/munger-lion-white.png';
+        img.onload = function () {
+          var c = document.createElement('canvas');
+          c.width = img.width; c.height = img.height;
+          var ctx = c.getContext('2d');
+          // Draw tint color first
+          ctx.fillStyle = '#001699';
+          ctx.fillRect(0, 0, c.width, c.height);
+          // Multiply with the white lion alpha — keeps shape, applies color
+          ctx.globalCompositeOperation = 'destination-in';
+          ctx.drawImage(img, 0, 0);
+          var link = document.getElementById('favicon');
+          link.href = c.toDataURL('image/png');
+        };
+      })();
+    </script>
+    <meta name="description" content="Munger Agency — Life insurance, legacy planning, and financial protection for families and businesses nationwide." />
+    <meta name="author" content="Munger Agency" />
 
-    <!-- TODO: Update og:title to match your application name -->
-    <meta property="og:title" content="Lovable App" />
-    <meta property="og:description" content="Lovable Generated Project" />
+    <meta property="og:title" content="Munger Agency — Protecting Your Life and Legacy" />
+    <meta property="og:description" content="Life insurance, legacy planning, and financial protection for families and businesses nationwide." />
     <meta property="og:type" content="website" />
-    <meta property="og:image" content="https://lovable.dev/opengraph-image-p98pqg.png" />
+    <meta property="og:image" content="/munger-lion-white.png" />
 
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:site" content="@Lovable" />
-    <meta name="twitter:image" content="https://lovable.dev/opengraph-image-p98pqg.png" />
+    <meta name="twitter:site" content="@MungerAgency" />
+    <meta name="twitter:image" content="/munger-lion-white.png" />
   </head>
 
   <body>
