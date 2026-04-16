@@ -49,7 +49,7 @@ const WhyUsPage = () => (
             icon: Heart,
             title: "Client-First Service",
             body: "Life planning isn't one-size-fits-all. Whether you're building a legacy, protecting a business, or preparing for retirement, we strategize around your needs, your budget, and your goals — adjusting with you as life happens. We are here for you, your family, and your business. Always.",
-            img: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=900&q=80",
+            img: "https://images.unsplash.com/photo-1521791136064-7986c2920216?w=900&q=80",
           },
         ].map((card) => (
           <div key={card.title} className="relative overflow-hidden rounded-xl min-h-[320px] flex flex-col justify-end group">

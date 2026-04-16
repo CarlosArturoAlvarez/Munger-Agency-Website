@@ -44,12 +44,13 @@ const products = [
   { icon: Shield, name: "Term Insurance", desc: "Affordable protection for a set period", img: "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=600&q=80" },
   { icon: GraduationCap, name: "Education Insurance", desc: "Fund your children's future education", img: "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?w=600&q=80" },
   { icon: Home, name: "Mortgage Protection", desc: "Keep your family in their home", img: "https://images.unsplash.com/photo-1570129477492-45c003edd2be?w=600&q=80" },
-  { icon: DollarSign, name: "Disability & Critical Illness", desc: "Income protection when you need it most", img: "https://images.unsplash.com/photo-1584820927498-cfe5211fd8bf?w=600&q=80" },
+  { icon: DollarSign, name: "Disability & Critical Illness", desc: "Income protection when you need it most", img: "https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=600&q=80" },
   { icon: PiggyBank, name: "Retirement & Annuities", desc: "Guaranteed income streams for retirement", img: "https://images.unsplash.com/photo-1559526324-593bc073d938?w=600&q=80" },
   { icon: Landmark, name: "Debt Free Life / Infinite Banking", desc: "Build wealth while staying protected", img: "https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?w=600&q=80" },
   { icon: FileText, name: "Trust & Will Services", desc: "Protect your estate and your wishes", img: "https://images.unsplash.com/photo-1507679799987-c73779587ccf?w=600&q=80" },
   { icon: Users, name: "Final Expenses", desc: "Dignity and peace of mind for loved ones", img: "https://images.unsplash.com/photo-1528716321680-815a8cdb8cbe?w=600&q=80" },
   { icon: Building, name: "Property & Casualty", desc: "Home, auto, and business coverage", img: "https://images.unsplash.com/photo-1486325212027-8081e485255e?w=600&q=80" },
+  { icon: Briefcase, name: "Key Person Insurance", desc: "Protect your business when it matters most", img: "https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=600&q=80" },
 ];
 
 const steps = [
@@ -270,7 +271,7 @@ const HomePage = () => {
     <Section className="bg-navy-deep/30">
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
         <div className="rounded-xl overflow-hidden aspect-[4/5]">
-          <img src="/kat.jpg" alt="Kathleen Munger" className="w-full h-full object-cover object-top" />
+          <img src="/kat.jpg" alt="Kathleen Munger" className="w-full h-full object-cover object-center" />
         </div>
         <div>
           <h2 className="font-serif text-3xl sm:text-4xl font-bold mb-4">Meet Kathleen</h2>

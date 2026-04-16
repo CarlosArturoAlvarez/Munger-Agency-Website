@@ -13,12 +13,14 @@ import {
 // ─── EmailJS config ───────────────────────────────────────────────────────────
 // Replace these three values after setting up your EmailJS account:
 //   1. Go to https://www.emailjs.com and sign up (free)
-//   2. Add an Email Service (Gmail) → copy the Service ID
-//   3. Create an Email Template      → copy the Template ID
-//   4. Account → API Keys            → copy the Public Key
+//   2. Add an Email Service (Gmail / SMTP) → copy the Service ID
+//   3. Create an Email Template → set "To Email" to careers@mungeragency.com
+//      and add {{to_email}} as the recipient field → copy the Template ID
+//   4. Account → API Keys → copy the Public Key
 const EMAILJS_SERVICE_ID  = "YOUR_SERVICE_ID";
 const EMAILJS_TEMPLATE_ID = "YOUR_TEMPLATE_ID";
 const EMAILJS_PUBLIC_KEY  = "YOUR_PUBLIC_KEY";
+const CAREERS_EMAIL       = "careers@mungeragency.com";
 // ─────────────────────────────────────────────────────────────────────────────
 
 const checklist = [
@@ -46,6 +48,7 @@ const sourceOptions = ["Indeed", "ZipRecruiter", "LinkedIn", "Google", "Referral
 const CareersPage = () => {
   const { toast } = useToast();
   const [loading, setLoading] = useState(false);
+  const [resume, setResume] = useState<File | null>(null);
   const [form, setForm] = useState({
     fullName: "",
     email: "",
@@ -56,6 +59,8 @@ const CareersPage = () => {
     experience: "",
     military: "",
     contractor: false,
+    authorizedToWork: false,
+    backgroundCheck: false,
     source: "",
   });
 
@@ -72,7 +77,7 @@ const CareersPage = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!form.fullName || !form.email || !form.phone || !form.contractor) {
+    if (!form.fullName || !form.email || !form.phone || !form.contractor || !form.authorizedToWork || !form.backgroundCheck) {
       toast({ title: "Missing Fields", description: "Please complete all required fields.", variant: "destructive" });
       return;
     }
@@ -92,12 +97,17 @@ const CareersPage = () => {
           experience:      form.experience || "N/A",
           military:        form.military || "N/A",
           source:          form.source || "N/A",
+          authorized:      form.authorizedToWork ? "Yes" : "No",
+          background:      form.backgroundCheck ? "Yes" : "No",
+          resume:          resume ? resume.name : "Not provided",
+          to_email:        CAREERS_EMAIL,
           submitted_at:    new Date().toLocaleString("en-US", { timeZone: "America/Chicago" }),
         },
         EMAILJS_PUBLIC_KEY
       );
       toast({ title: "Application Sent! 🎉", description: "Thank you! Kathleen will be in touch with you soon." });
-      setForm({ fullName: "", email: "", phone: "", statesLicensed: "", npn: "", licenseTypes: [], experience: "", military: "", contractor: false, source: "" });
+      setForm({ fullName: "", email: "", phone: "", statesLicensed: "", npn: "", licenseTypes: [], experience: "", military: "", contractor: false, authorizedToWork: false, backgroundCheck: false, source: "" });
+      setResume(null);
     } catch {
       toast({ title: "Error", description: "Something went wrong. Please try again or email mungeragency@yahoo.com directly.", variant: "destructive" });
     } finally {
@@ -165,7 +175,7 @@ const CareersPage = () => {
               <p className="text-foreground/90 leading-relaxed">
                 The insurance industry offers a flexible, rewarding career that aligns perfectly with the discipline, leadership, and service mindset of our military community. Watch Kathleen's interview with a veteran below to hear firsthand why this career path is a natural fit.
               </p>
-              <a href="https://calendly.com/mungeragency/clientcall" target="_blank" rel="noopener noreferrer">
+              <a href="https://calendly.com/mungeragency/call" target="_blank" rel="noopener noreferrer">
                 <Button variant="hero" size="default">Let's Chat <Calendar size={16} /></Button>
               </a>
             </div>
@@ -297,18 +307,68 @@ const CareersPage = () => {
                 ))}
               </select>
             </div>
-            <label className="flex items-start gap-2 cursor-pointer">
-              <input
-                type="checkbox"
-                checked={form.contractor}
-                onChange={(e) => update("contractor", e.target.checked)}
-                className="mt-0.5 rounded border-foreground/20 bg-foreground/5 text-primary focus:ring-primary/50"
-                required
-              />
-              <span className="text-sm text-foreground/80">
-                I understand this is a 1099 independent contractor position *
-              </span>
-            </label>
+            {/* Resume Upload */}
+            <div>
+              <label className="block text-xs font-sans font-semibold text-foreground/80 mb-1.5">Resume (optional)</label>
+              <label className="flex items-center gap-3 cursor-pointer w-fit">
+                <span className="inline-flex items-center gap-2 px-4 py-2.5 rounded-lg bg-foreground/10 border border-foreground/15 text-sm text-foreground/80 hover:bg-foreground/15 transition-colors">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+                  {resume ? resume.name : "Attach Resume"}
+                </span>
+                <input
+                  type="file"
+                  accept=".pdf,.doc,.docx"
+                  className="hidden"
+                  onChange={(e) => setResume(e.target.files?.[0] ?? null)}
+                />
+              </label>
+              {resume && (
+                <button type="button" onClick={() => setResume(null)} className="mt-1 text-xs text-muted-foreground hover:text-foreground underline">
+                  Remove
+                </button>
+              )}
+            </div>
+
+            {/* Legal checkboxes */}
+            <div className="space-y-3 pt-1">
+              <label className="flex items-start gap-2 cursor-pointer">
+                <input
+                  type="checkbox"
+                  checked={form.authorizedToWork}
+                  onChange={(e) => update("authorizedToWork", e.target.checked)}
+                  className="mt-0.5 rounded border-foreground/20 bg-foreground/5 text-primary focus:ring-primary/50"
+                  required
+                />
+                <span className="text-sm text-foreground/80">
+                  I am legally authorized to work in the United States *
+                </span>
+              </label>
+              <label className="flex items-start gap-2 cursor-pointer">
+                <input
+                  type="checkbox"
+                  checked={form.backgroundCheck}
+                  onChange={(e) => update("backgroundCheck", e.target.checked)}
+                  className="mt-0.5 rounded border-foreground/20 bg-foreground/5 text-primary focus:ring-primary/50"
+                  required
+                />
+                <span className="text-sm text-foreground/80">
+                  I consent to a background check as part of the application process *
+                </span>
+              </label>
+              <label className="flex items-start gap-2 cursor-pointer">
+                <input
+                  type="checkbox"
+                  checked={form.contractor}
+                  onChange={(e) => update("contractor", e.target.checked)}
+                  className="mt-0.5 rounded border-foreground/20 bg-foreground/5 text-primary focus:ring-primary/50"
+                  required
+                />
+                <span className="text-sm text-foreground/80">
+                  I understand this is a 1099 independent contractor position *
+                </span>
+              </label>
+            </div>
+
             <Button type="submit" variant="hero" size="lg" className="w-full" disabled={loading}>
               {loading ? "Submitting..." : "Submit My Application"}
             </Button>

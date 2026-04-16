@@ -24,7 +24,7 @@ const CarrierTicker = () => (
       {[...carriers, ...carriers].map((c, i) => (
         <div
           key={i}
-          className="shrink-0 w-36 h-20 bg-white rounded-lg flex items-center justify-center p-3"
+          className="shrink-0 w-64 h-36 bg-white rounded-lg flex items-center justify-center p-5"
         >
           <img
             src={c.src}

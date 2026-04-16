@@ -11,6 +11,7 @@ import Careers from "./pages/Careers.tsx";
 import Team from "./pages/Team.tsx";
 import Charitable from "./pages/Charitable.tsx";
 import Contact from "./pages/Contact.tsx";
+import AgentPortal from "./pages/AgentPortal.tsx";
 import NotFound from "./pages/NotFound.tsx";
 
 const queryClient = new QueryClient();
@@ -30,6 +31,7 @@ const App = () => (
           <Route path="/agents-referring" element={<Team />} />
           <Route path="/charitablecontributions" element={<Charitable />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/agent-portal" element={<AgentPortal />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>

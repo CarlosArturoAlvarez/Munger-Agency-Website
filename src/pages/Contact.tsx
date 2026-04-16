@@ -151,6 +151,35 @@ const ContactPage = () => {
           </GlassCard>
         </div>
       </Section>
+
+      {/* Closing Banner */}
+      <Section>
+        <div className="max-w-5xl mx-auto rounded-2xl overflow-hidden glass-card !p-0">
+          <div className="flex flex-col md:flex-row items-stretch">
+            <div className="md:w-80 shrink-0">
+              <img
+                src="/kat-and-her-sons.avif"
+                alt="Kathleen Munger Fisk with her sons"
+                className="w-full h-full object-cover object-center"
+                style={{ minHeight: "280px" }}
+              />
+            </div>
+            <div className="flex-1 flex flex-col justify-center px-8 py-10">
+              <p className="font-serif text-2xl sm:text-3xl font-bold text-foreground leading-snug mb-4">
+                CONTACT Munger Agency and let us take the burden of worry off your shoulders in protecting your life and legacy <span className="text-primary">TODAY!</span>
+              </p>
+              <p className="text-muted-foreground text-sm leading-relaxed mb-6">
+                We look forward to talking soon and hope you and your family have a wonderful day!
+              </p>
+              <div>
+                <a href="https://calendly.com/mungeragency/call" target="_blank" rel="noopener noreferrer">
+                  <Button variant="hero" size="lg">Schedule a Call</Button>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </Section>
     </PageLayout>
   );
 };

@@ -27,7 +27,7 @@ const OurWhyPage = () => (
             <img
               src="/kat-boys-dad.jpg"
               alt="Kathleen's boys with their father"
-              className="w-full h-full object-cover"
+              className="w-full h-full object-cover object-center"
             />
           </div>
           <p className="text-xs text-muted-foreground text-center mt-3 italic">
@@ -139,7 +139,7 @@ const OurWhyPage = () => (
             <img
               src="/kat-boys.jpg"
               alt="Kathleen with her boys"
-              className="w-full h-full object-cover object-top"
+              className="w-full h-full object-cover object-center"
             />
           </div>
           <p className="text-xs text-muted-foreground text-center mt-3 italic">
