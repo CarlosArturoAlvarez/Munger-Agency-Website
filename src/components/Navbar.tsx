@@ -10,6 +10,7 @@ const navLinks = [
   { label: "Careers", path: "/careers" },
   { label: "Team & Partners", path: "/agents-referring" },
   { label: "Contact", path: "/contact" },
+  { label: "Agent Portal", path: "/agent-portal" },
 ];
 
 const Navbar = () => {
