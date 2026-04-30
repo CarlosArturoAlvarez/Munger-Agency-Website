@@ -17,9 +17,9 @@ import {
 //   3. Create an Email Template → set "To Email" to careers@mungeragency.com
 //      and add {{to_email}} as the recipient field → copy the Template ID
 //   4. Account → API Keys → copy the Public Key
-const EMAILJS_SERVICE_ID  = "YOUR_SERVICE_ID";
-const EMAILJS_TEMPLATE_ID = "YOUR_TEMPLATE_ID";
-const EMAILJS_PUBLIC_KEY  = "YOUR_PUBLIC_KEY";
+const EMAILJS_SERVICE_ID  = "service_twwokwj";
+const EMAILJS_TEMPLATE_ID = "template_ofr64cn";
+const EMAILJS_PUBLIC_KEY  = "x1VD_oV43DJKOKAoE";
 const CAREERS_EMAIL       = "careers@mungeragency.com";
 // ─────────────────────────────────────────────────────────────────────────────
 
