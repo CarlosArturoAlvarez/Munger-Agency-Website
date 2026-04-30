@@ -277,7 +277,7 @@ const CareersPage = () => {
                 <select
                   value={form.experience}
                   onChange={(e) => update("experience", e.target.value)}
-                  className="w-full bg-foreground/5 border border-foreground/10 rounded-lg px-4 py-2.5 text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-primary/50"
+                  className="w-full bg-foreground/5 border border-foreground/10 rounded-lg px-4 py-2.5 text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-primary/50 [&>option]:text-black [&>option]:bg-white"
                 >
                   <option value="">Select...</option>
                   {experienceOptions.map((o) => (
@@ -290,7 +290,7 @@ const CareersPage = () => {
                 <select
                   value={form.military}
                   onChange={(e) => update("military", e.target.value)}
-                  className="w-full bg-foreground/5 border border-foreground/10 rounded-lg px-4 py-2.5 text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-primary/50"
+                  className="w-full bg-foreground/5 border border-foreground/10 rounded-lg px-4 py-2.5 text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-primary/50 [&>option]:text-black [&>option]:bg-white"
                 >
                   <option value="">Select...</option>
                   <option value="Yes">Yes</option>
@@ -303,7 +303,7 @@ const CareersPage = () => {
               <select
                 value={form.source}
                 onChange={(e) => update("source", e.target.value)}
-                className="w-full bg-foreground/5 border border-foreground/10 rounded-lg px-4 py-2.5 text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-primary/50"
+                className="w-full bg-foreground/5 border border-foreground/10 rounded-lg px-4 py-2.5 text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-primary/50 [&>option]:text-black [&>option]:bg-white"
               >
                 <option value="">Select...</option>
                 {sourceOptions.map((o) => (
