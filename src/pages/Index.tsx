@@ -83,6 +83,7 @@ const videos = [
   { id: "pu53-UHUGoM", label: "Quility Life Lessons Scholarship 2022: Meet MaKayla" },
   { id: "TTIWbr0arPc", label: "The Importance of Investing in Life Insurance" },
   { id: "GUpErnN77Y0", label: "Why to Buy Life Insurance in Your 20's" },
+  { id: "afNNaZreRxY", label: "Debt Free Life" },
 ];
 
 const HomePage = () => {
