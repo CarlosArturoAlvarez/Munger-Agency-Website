@@ -128,8 +128,8 @@ const CareersPage = () => {
       </section>
 
       {/* Banner */}
-      <div className="w-full h-72 sm:h-96 overflow-hidden">
-        <img src="/careers-banner.png" alt="Munger Agency careers" className="w-full h-full object-cover object-center" />
+      <div className="w-full h-48 sm:h-64 overflow-hidden">
+        <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=1600&q=80" alt="Munger Agency careers" className="w-full h-full object-cover object-center" />
       </div>
 
       {/* Who We're Looking For */}
