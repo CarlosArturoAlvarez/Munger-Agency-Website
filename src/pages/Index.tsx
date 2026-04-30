@@ -79,11 +79,11 @@ const steps = [
 ];
 
 const videos = [
+  { id: "afNNaZreRxY", label: "Debt Free Life" },
   { id: "gqyRmmAWNgo", label: "Real Life Stories | Kovacic Family: Everything Will Be Okay" },
   { id: "pu53-UHUGoM", label: "Quility Life Lessons Scholarship 2022: Meet MaKayla" },
   { id: "TTIWbr0arPc", label: "The Importance of Investing in Life Insurance" },
   { id: "GUpErnN77Y0", label: "Why to Buy Life Insurance in Your 20's" },
-  { id: "afNNaZreRxY", label: "Debt Free Life" },
 ];
 
 const HomePage = () => {
@@ -249,12 +249,12 @@ const HomePage = () => {
       </div>
 
       {/* Thumbnail selector */}
-      <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 max-w-3xl mx-auto">
+      <div className="flex gap-3 max-w-3xl mx-auto overflow-x-auto pb-1">
         {videos.map((v, i) => (
           <button
             key={v.id}
             onClick={() => setActiveVideo(i)}
-            className={`relative rounded-lg overflow-hidden group focus:outline-none transition-all duration-200 ${
+            className={`relative shrink-0 w-44 rounded-lg overflow-hidden group focus:outline-none transition-all duration-200 ${
               activeVideo === i ? "ring-2 ring-primary scale-[1.02]" : "opacity-70 hover:opacity-100"
             }`}
           >
