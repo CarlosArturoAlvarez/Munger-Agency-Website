@@ -48,7 +48,6 @@ const sourceOptions = ["Indeed", "ZipRecruiter", "LinkedIn", "Google", "Referral
 const CareersPage = () => {
   const { toast } = useToast();
   const [loading, setLoading] = useState(false);
-  const [resume, setResume] = useState<File | null>(null);
   const [form, setForm] = useState({
     fullName: "",
     email: "",
@@ -99,7 +98,6 @@ const CareersPage = () => {
           source:          form.source || "N/A",
           authorized:      form.authorizedToWork ? "Yes" : "No",
           background:      form.backgroundCheck ? "Yes" : "No",
-          resume:          resume ? resume.name : "Not provided",
           to_email:        CAREERS_EMAIL,
           submitted_at:    new Date().toLocaleString("en-US", { timeZone: "America/Chicago" }),
         },
@@ -107,7 +105,6 @@ const CareersPage = () => {
       );
       toast({ title: "Application Sent! 🎉", description: "Thank you! Kathleen will be in touch with you soon." });
       setForm({ fullName: "", email: "", phone: "", statesLicensed: "", npn: "", licenseTypes: [], experience: "", military: "", contractor: false, authorizedToWork: false, backgroundCheck: false, source: "" });
-      setResume(null);
     } catch {
       toast({ title: "Error", description: "Something went wrong. Please try again or email mungeragency@yahoo.com directly.", variant: "destructive" });
     } finally {
@@ -311,26 +308,15 @@ const CareersPage = () => {
                 ))}
               </select>
             </div>
-            {/* Resume Upload */}
-            <div>
-              <label className="block text-xs font-sans font-semibold text-foreground/80 mb-1.5">Resume (optional)</label>
-              <label className="flex items-center gap-3 cursor-pointer w-fit">
-                <span className="inline-flex items-center gap-2 px-4 py-2.5 rounded-lg bg-foreground/10 border border-foreground/15 text-sm text-foreground/80 hover:bg-foreground/15 transition-colors">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
-                  {resume ? resume.name : "Attach Resume"}
-                </span>
-                <input
-                  type="file"
-                  accept=".pdf,.doc,.docx"
-                  className="hidden"
-                  onChange={(e) => setResume(e.target.files?.[0] ?? null)}
-                />
-              </label>
-              {resume && (
-                <button type="button" onClick={() => setResume(null)} className="mt-1 text-xs text-muted-foreground hover:text-foreground underline">
-                  Remove
-                </button>
-              )}
+            {/* Resume */}
+            <div className="rounded-lg bg-primary/10 border border-primary/20 px-4 py-3">
+              <p className="text-sm text-foreground/90">
+                <span className="font-semibold">Resume:</span> Please email your resume to{" "}
+                <a href="mailto:careers@mungeragency.com" className="text-primary hover:underline font-medium">
+                  careers@mungeragency.com
+                </a>{" "}
+                after submitting this form.
+              </p>
             </div>
 
             {/* Legal checkboxes */}
