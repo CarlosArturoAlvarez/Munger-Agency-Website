@@ -22,7 +22,7 @@ const OurWhyPage = () => (
     {/* Story — boys & dad photo */}
     <Section>
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
-        <div className="sticky top-24">
+        <div>
           <div className="rounded-xl overflow-hidden shadow-2xl">
             <img
               src="/kat-boys-dad.jpg"
@@ -75,17 +75,17 @@ const OurWhyPage = () => (
         </h2>
         <div className="space-y-4 text-foreground/85 leading-relaxed text-left">
           <p>
-            We all know someone who has had to set up a GoFundMe to cover expenses after losing a loved one. We all say <em>"I'll get to that"</em> — and sometimes we never do. Time is fleeting, and tomorrow is never guaranteed.
+            We all know someone who has had to set up a GoFundMe to cover funeral expenses after losing a loved one, not to mention the loss of income. We all say <em>"I'll get to that"</em> — and sometimes we never do. Time is fleeting, and tomorrow is never guaranteed.
           </p>
           <p>
-            Preparation is the most powerful act of love you can give to those you care about. Don't let another day pass without coverage. Take care of this <strong className="text-foreground">today</strong> — because there truly is no time like the present.
+            Preparation is the most powerful act of love you can give to those you care about. Don't let another day pass without coverage. Take care of this <strong className="text-foreground">today</strong> — because there truly is no time like the present to gift your loved ones peace.
           </p>
           <p>
             Our team at Munger Agency looks forward to having a real conversation with you about how we can protect your life and legacy — just as we've done for so many families before yours.
           </p>
         </div>
         <div className="pt-4">
-          <a href="https://calendly.com/mungeragency" target="_blank" rel="noopener noreferrer">
+          <a href="https://form.jotform.com/251737570387163" target="_blank" rel="noopener noreferrer">
             <Button variant="hero" size="xl">Get Protected Today</Button>
           </a>
         </div>
@@ -97,7 +97,7 @@ const OurWhyPage = () => (
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
         <div className="space-y-6 text-foreground/90 leading-relaxed">
           <div>
-            <h2 className="font-serif text-3xl sm:text-4xl font-bold mb-1">Kathleen Munger Fisk</h2>
+            <h2 className="font-serif text-3xl sm:text-4xl font-bold mb-1">Kathleen 'Kat' Munger Fisk</h2>
             <p className="text-sm text-primary font-sans font-semibold">Your Life &amp; Legacy Specialist</p>
           </div>
 
@@ -106,7 +106,7 @@ const OurWhyPage = () => (
           </p>
 
           <p>
-            Kathleen brings a remarkably diverse background to this work: she has owned multiple companies, served as COO, CMO, and Administrator, worked with Trusts and Funeral Homes, and guided clients through some of life's most difficult moments — death, divorce, estate settlement, and more — over a 20+ year career.
+            Kathleen brings a remarkably diverse background to this work: she has owned multiple companies, served as COO, CMO, and Hospital Administrator, worked with Trusts and Funeral Homes, and guided clients through some of life's most difficult moments — death, divorce, estate settlement, and more — over a 20+ year career.
           </p>
 
           <p>
@@ -119,13 +119,13 @@ const OurWhyPage = () => (
 
           <p>
             Based in Dallas, Kathleen serves clients nationwide. In her personal time, she enjoys her sons, family, travel, volunteering, and raising money for causes close to her heart — several of which are featured on our{" "}
-            <Link to="/charitablecontributions" className="text-primary hover:underline">
+            <Link to="/agents-referring#giving-back" className="text-primary hover:underline">
               Giving Back page
             </Link>.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 pt-2">
-            <a href="https://calendly.com/mungeragency" target="_blank" rel="noopener noreferrer">
+            <a href="https://calendly.com/mungeragency/client-phone-call" target="_blank" rel="noopener noreferrer">
               <Button variant="hero" size="lg">Schedule a Call with Kathleen</Button>
             </a>
             <Link to="/careers">
@@ -143,7 +143,7 @@ const OurWhyPage = () => (
             />
           </div>
           <p className="text-xs text-muted-foreground text-center mt-3 italic">
-            Kathleen with her sons — the heart behind everything Munger Agency does.
+            Kathleen with her sons — Family the heart behind everything Munger Agency does.
           </p>
         </div>
       </div>

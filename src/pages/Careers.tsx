@@ -41,7 +41,7 @@ const benefits = [
   { icon: TrendingUp, title: "Build Your Agency", desc: "Own your book of business and earn residual income" },
 ];
 
-const licenseTypes = ["Life", "Health", "P&C", "Not yet licensed"];
+const licenseTypes = ["Life", "Health", "P&C", "Not yet licensed - We can help you get licensed"];
 const experienceOptions = ["0", "1–2", "3–5", "5+"];
 const sourceOptions = ["Indeed", "ZipRecruiter", "LinkedIn", "Google", "Referral", "Other"];
 
@@ -125,11 +125,15 @@ const CareersPage = () => {
             <span className="text-foreground">Build Your Legacy.</span>
           </h1>
           <p className="max-w-2xl mx-auto text-lg text-muted-foreground leading-relaxed">
-            We're growing — and we're looking for motivated individuals who want to help families
-            while building something of their own.
+            We Are Growing - and looking for Entrepreneurial, Motivated Individuals who want to build a Legacy of their own while helping families.
           </p>
         </div>
       </section>
+
+      {/* Banner */}
+      <div className="w-full h-56 sm:h-72 overflow-hidden">
+        <img src="/careers-banner.png" alt="Munger Agency careers" className="w-full h-full object-cover object-center" />
+      </div>
 
       {/* Who We're Looking For */}
       <Section>
@@ -165,7 +169,7 @@ const CareersPage = () => {
         <div className="max-w-4xl mx-auto">
           <div className="flex items-center gap-3 mb-6">
             <Flag size={28} className="text-primary shrink-0" />
-            <h2 className="font-serif text-3xl sm:text-4xl font-bold">Military Personnel Welcome</h2>
+            <h2 className="font-serif text-3xl sm:text-4xl font-bold">Military Personnel Appreciated & Welcome</h2>
           </div>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
             <div className="space-y-4">
@@ -173,9 +177,9 @@ const CareersPage = () => {
                 We are proud to welcome Military personnel — currently serving US-based, retiring, and military spouses — to the Munger Agency family.
               </p>
               <p className="text-foreground/90 leading-relaxed">
-                The insurance industry offers a flexible, rewarding career that aligns perfectly with the discipline, leadership, and service mindset of our military community. Watch Kathleen's interview with a veteran below to hear firsthand why this career path is a natural fit.
+                The insurance industry offers flexible hours, remote work and a rewarding career that aligns perfectly with the discipline, leadership, and service mindset of our military community. Watch Kathleen's interview with a veteran below to hear firsthand why this career path is a natural fit.
               </p>
-              <a href="https://calendly.com/mungeragency/call" target="_blank" rel="noopener noreferrer">
+              <a href="https://calendly.com/mungeragency/client-phone-call?back=1&month=2026-04" target="_blank" rel="noopener noreferrer">
                 <Button variant="hero" size="default">Let's Chat <Calendar size={16} /></Button>
               </a>
             </div>
@@ -375,7 +379,7 @@ const CareersPage = () => {
             <p className="text-center text-xs text-muted-foreground">
               Or if you'd prefer to speak first —{" "}
               <a
-                href="https://calendly.com/mungeragency/call"
+                href="https://calendly.com/mungeragency/interviewcall"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-primary hover:underline"

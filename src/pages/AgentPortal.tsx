@@ -40,7 +40,7 @@ const steps = [
       "Set up your CRM and quoting tools",
       "Shadow your first client meeting",
     ],
-    link: { label: "Schedule Onboarding Call", href: "https://calendly.com/mungeragency/call" },
+    link: { label: "Schedule Onboarding Call", href: "https://calendly.com/mungeragency/interviewcall" },
   },
   {
     step: "04",
@@ -58,7 +58,7 @@ const steps = [
 const resources = [
   { icon: BookOpen, title: "Study Guide", desc: "Recommended pre-licensing course: Kaplan Financial Education", href: "https://www.kaplanfinancial.com/insurance" },
   { icon: FileText, title: "State Exam Info", desc: "Find exam dates, locations, and requirements for your state", href: "https://www.nipr.com/" },
-  { icon: Phone, title: "Talk to Kathleen", desc: "Have questions? Book a quick call before you even get started", href: "https://calendly.com/mungeragency/call" },
+  { icon: Phone, title: "Talk to Kathleen", desc: "Have questions? Book a quick call before you even get started", href: "https://calendly.com/mungeragency/interviewcall" },
   { icon: Star, title: "E&O Insurance", desc: "Required before carrier appointments — get covered quickly", href: "https://www.eoforless.com/" },
 ];
 
@@ -190,7 +190,7 @@ const PortalContent = () => (
           This portal will grow as you do. More training materials, carrier resources, and tools
           will be added here over time. When in doubt — call Kathleen.
         </p>
-        <a href="https://calendly.com/mungeragency/call" target="_blank" rel="noopener noreferrer">
+        <a href="https://calendly.com/mungeragency/interviewcall" target="_blank" rel="noopener noreferrer">
           <Button variant="hero" size="lg">Schedule a Call with Kathleen</Button>
         </a>
       </GlassCard>

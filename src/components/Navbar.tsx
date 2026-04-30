@@ -9,7 +9,6 @@ const navLinks = [
   { label: "Our Why", path: "/our-why" },
   { label: "Careers", path: "/careers" },
   { label: "Team & Partners", path: "/agents-referring" },
-  { label: "Giving Back", path: "/charitablecontributions" },
   { label: "Contact", path: "/contact" },
 ];
 
@@ -50,10 +49,10 @@ const Navbar = () => {
         </div>
 
         <div className="hidden lg:flex items-center gap-3">
-          <a href="tel:2147992052" className="text-foreground/70 hover:text-foreground transition-colors">
+          <a href="https://calendly.com/mungeragency/client-phone-call" target="_blank" rel="noopener noreferrer" className="text-foreground/70 hover:text-foreground transition-colors">
             <Phone size={18} />
           </a>
-          <a href="https://calendly.com/mungeragency" target="_blank" rel="noopener noreferrer">
+          <a href="https://calendly.com/mungeragency/client-phone-call" target="_blank" rel="noopener noreferrer">
             <Button variant="hero" size="sm">Schedule a Call</Button>
           </a>
         </div>
@@ -85,7 +84,7 @@ const Navbar = () => {
               {link.label}
             </Link>
           ))}
-          <a href="https://calendly.com/mungeragency" target="_blank" rel="noopener noreferrer">
+          <a href="https://calendly.com/mungeragency/client-phone-call" target="_blank" rel="noopener noreferrer">
             <Button variant="hero" size="default" className="w-full mt-4">Schedule a Call</Button>
           </a>
         </div>

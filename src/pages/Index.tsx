@@ -7,7 +7,7 @@ import {
   Shield, Globe, MapPin, Award, Users, User, Briefcase,
   Heart, Home, Umbrella, GraduationCap, DollarSign,
   Landmark, PiggyBank, FileText, Building, Car,
-  Calendar, ClipboardList, Video, ArrowRight, Quote, Play
+  Calendar, ClipboardList, Video, ArrowRight, Quote, Play, PawPrint
 } from "lucide-react";
 
 const trustItems = [
@@ -28,29 +28,30 @@ const helpCards = [
     icon: User,
     title: "Individuals",
     desc: "Term, whole, universal life, and critical illness coverage tailored to your stage of life.",
-    img: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800&q=80",
+    img: "https://images.unsplash.com/photo-1484712401471-05c7215830eb?w=800&q=80",
   },
   {
     icon: Briefcase,
     title: "Businesses & Retirees",
-    desc: "Annuities, IULs, and retirement gap reviews to secure your financial future.",
+    desc: "Keyman Policy, Annuities, IULs, and retirement gap reviews to secure your financial future.",
     img: "https://images.unsplash.com/photo-1556761175-b413da4baf72?w=800&q=80",
   },
 ];
 
 const products = [
   { icon: Heart, name: "Whole Life", desc: "Lifelong coverage with guaranteed cash value growth", img: "https://images.unsplash.com/photo-1474552226712-ac0f0961a954?w=600&q=80" },
-  { icon: Umbrella, name: "Universal Life", desc: "Flexible premiums and adjustable death benefits", img: "https://images.unsplash.com/photo-1504701954957-2010ec3bcec1?w=600&q=80" },
+  { icon: Umbrella, name: "Universal Life", desc: "Flexible premiums and adjustable death benefits", img: "/pic1.png" },
   { icon: Shield, name: "Term Insurance", desc: "Affordable protection for a set period", img: "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=600&q=80" },
-  { icon: GraduationCap, name: "Education Insurance", desc: "Fund your children's future education", img: "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?w=600&q=80" },
+  { icon: GraduationCap, name: "Education Insurance", desc: "Fund your children's future education", img: "/pic2.png" },
   { icon: Home, name: "Mortgage Protection", desc: "Keep your family in their home", img: "https://images.unsplash.com/photo-1570129477492-45c003edd2be?w=600&q=80" },
-  { icon: DollarSign, name: "Disability & Critical Illness", desc: "Income protection when you need it most", img: "https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=600&q=80" },
+  { icon: DollarSign, name: "Disability, Critical Illness & Living Benefits", desc: "Income protection when YOU need it most", img: "https://images.unsplash.com/photo-1700190827479-c79e8db4bc88?w=600&q=80" },
   { icon: PiggyBank, name: "Retirement & Annuities", desc: "Guaranteed income streams for retirement", img: "https://images.unsplash.com/photo-1559526324-593bc073d938?w=600&q=80" },
   { icon: Landmark, name: "Debt Free Life / Infinite Banking", desc: "Build wealth while staying protected", img: "https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?w=600&q=80" },
-  { icon: FileText, name: "Trust & Will Services", desc: "Protect your estate and your wishes", img: "https://images.unsplash.com/photo-1507679799987-c73779587ccf?w=600&q=80" },
+  { icon: FileText, name: "Trust & Will Services", desc: "Protect your estate and your wishes", img: "https://images.unsplash.com/photo-1528752477378-485b46bedcde?w=600&q=80" },
   { icon: Users, name: "Final Expenses", desc: "Dignity and peace of mind for loved ones", img: "https://images.unsplash.com/photo-1528716321680-815a8cdb8cbe?w=600&q=80" },
-  { icon: Building, name: "Property & Casualty", desc: "Home, auto, and business coverage", img: "https://images.unsplash.com/photo-1486325212027-8081e485255e?w=600&q=80" },
-  { icon: Briefcase, name: "Key Person Insurance", desc: "Protect your business when it matters most", img: "https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=600&q=80" },
+  { icon: Building, name: "Property & Casualty", desc: "Home, auto, and business coverage", img: "/pic7.png" },
+  { icon: Briefcase, name: "Key Person Insurance", desc: "Protect your business when it matters most", img: "https://images.unsplash.com/photo-1549923746-c502d488b3ea?w=600&q=80" },
+  { icon: PawPrint, name: "Pet Insurance", desc: "Protect your 4 legged family members", img: "/pet-cats.jpg", img2: "/pet-dog.jpg" },
 ];
 
 const steps = [
@@ -58,14 +59,14 @@ const steps = [
     icon: Calendar,
     title: "Schedule a Call",
     desc: "Book a free 15-minute introductory call at your convenience.",
-    link: "https://calendly.com/mungeragency/call",
+    link: "https://calendly.com/mungeragency/client-phone-call",
     img: "https://images.unsplash.com/photo-1506784983877-45594efa4cbe?w=800&q=80",
   },
   {
     icon: ClipboardList,
     title: "Complete Your Questionnaire",
     desc: "Help us understand your unique needs and goals.",
-    link: "https://form.jotform.com/mungeragency/client-questionnaire",
+    link: "https://form.jotform.com/251737570387163",
     img: "https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?w=800&q=80",
   },
   {
@@ -96,14 +97,14 @@ const HomePage = () => {
           <span className="text-foreground">and Legacy</span>
         </h1>
         <p className="max-w-2xl mx-auto text-lg sm:text-xl text-muted-foreground leading-relaxed mb-10">
-          Your trusted independent insurance &amp; retirement specialist — working with 30+ A-rated carriers
+          Your national independent insurance &amp; retirement specialist — working with 30+ A-rated carriers
           to find personalized coverage that fits your life and your budget.
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
-          <a href="https://calendly.com/mungeragency" target="_blank" rel="noopener noreferrer">
+          <a href="https://calendly.com/mungeragency/client-phone-call" target="_blank" rel="noopener noreferrer">
             <Button variant="hero" size="xl">Schedule a Free Call</Button>
           </a>
-          <a href="https://form.jotform.com/mungeragency/client-questionnaire" target="_blank" rel="noopener noreferrer">
+          <a href="https://form.jotform.com/261056937299167" target="_blank" rel="noopener noreferrer">
             <Button variant="hero-ghost" size="xl">Get a Quote</Button>
           </a>
         </div>
@@ -134,7 +135,7 @@ const HomePage = () => {
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
         {helpCards.map((card) => (
           <div key={card.title} className="relative overflow-hidden rounded-xl min-h-[280px] flex flex-col justify-end group">
-            <img src={card.img} alt={card.title} className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
+            <img src={card.img} alt={card.title} className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" style={card.imgPosition ? { objectPosition: card.imgPosition } : undefined} />
             <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-black/10" />
             <div className="relative z-10 p-6">
               <card.icon size={28} className="text-white mb-3" />
@@ -157,7 +158,7 @@ const HomePage = () => {
           {
             icon: Shield,
             title: "We Work for You",
-            desc: "We shop 30+ top-rated carriers on your behalf to find personalized coverage that fits your life and your budget — no pressure, just the right fit.",
+            desc: "Find the personalized coverage that fits your life and budget — no pressure, just the right fit.",
             img: "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=800&q=80",
           },
           {
@@ -169,7 +170,7 @@ const HomePage = () => {
           {
             icon: Heart,
             title: "Peace of Mind, Today & Tomorrow",
-            desc: "We help you plan for your future and the business of death — so when the time comes, your loved ones are protected and free to grieve, not scramble.",
+            desc: "So when that time comes, your loved ones are protected and free to grieve, without the financial worry.",
             img: "https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=800&q=80",
           },
         ].map((card) => (
@@ -205,13 +206,20 @@ const HomePage = () => {
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
         {products.map((p) => (
           <div key={p.name} className="relative overflow-hidden rounded-xl min-h-[180px] flex flex-col justify-end group">
-            <img src={p.img} alt={p.name} className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
+            {p.img2 ? (
+              <div className="absolute inset-0 flex">
+                <img src={p.img} alt={p.name} className="w-1/2 h-full object-cover transition-transform duration-500 group-hover:scale-105" />
+                <img src={p.img2} alt={p.name} className="w-1/2 h-full object-cover transition-transform duration-500 group-hover:scale-105" />
+              </div>
+            ) : (
+              <img src={p.img} alt={p.name} className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
+            )}
             <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/50 to-black/10" />
             <div className="relative z-10 p-5">
               <p.icon size={20} className="text-white mb-2" />
               <h3 className="font-sans font-semibold text-white mb-1">{p.name}</h3>
               <p className="text-xs text-white/75 leading-relaxed mb-2">{p.desc}</p>
-              <a href="https://calendly.com/mungeragency" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-xs text-primary hover:underline">
+              <a href="https://calendly.com/mungeragency/client-phone-call" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-xs text-primary hover:underline">
                 Learn More <ArrowRight size={12} />
               </a>
             </div>
@@ -222,9 +230,9 @@ const HomePage = () => {
 
     {/* Testimonials */}
     <Section>
-      <h2 className="font-serif text-3xl sm:text-4xl font-bold text-center mb-4">What Our Clients Say</h2>
+      <h2 className="font-serif text-3xl sm:text-4xl font-bold text-center mb-4">How Insurance Products Help Families like Yours</h2>
       <p className="text-center text-muted-foreground mb-10 max-w-xl mx-auto">
-        Real stories from real families we've had the privilege of protecting.
+        Real stories from real families that have used insurance to protect their family.
       </p>
 
       {/* Featured video player */}
@@ -270,15 +278,13 @@ const HomePage = () => {
     {/* Kathleen Teaser */}
     <Section className="bg-navy-deep/30">
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-        <div className="rounded-xl overflow-hidden aspect-[4/5]">
-          <img src="/kat.jpg" alt="Kathleen Munger" className="w-full h-full object-cover object-center" />
+        <div className="rounded-xl overflow-hidden aspect-square max-w-sm mx-auto w-full">
+          <img src="/kat-with-boys.jpg" alt="Kathleen Munger with her sons" className="w-full h-full object-cover object-center" />
         </div>
         <div>
-          <h2 className="font-serif text-3xl sm:text-4xl font-bold mb-4">Meet Kathleen</h2>
+          <h2 className="font-serif text-3xl sm:text-4xl font-bold mb-4">Meet Kathleen 'Kat'</h2>
           <p className="text-muted-foreground leading-relaxed mb-4">
-            When Kathleen's boys' dad passed away, she told them he left them Life Insurance —
-            but really, it was Love Insurance. That moment changed everything and became
-            the driving force behind Munger Agency.
+            When Kathleen's boys' dad died Kathleen and her son's didn't have to worry, the boys dad had in place what we call 'Love Insurance'. From that moment on the passion to bring that level of peace after death are the driving force behind the Munger Agency to all families.
           </p>
           <a href="/our-why">
             <Button variant="hero-ghost" size="lg">Read Our Story <ArrowRight size={16} /></Button>

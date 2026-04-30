@@ -11,6 +11,7 @@ const carriers = [
   { src: "/carriers/american-equity.jpg",     alt: "American Equity" },
   { src: "/carriers/american-amicable.jpg",   alt: "American-Amicable" },
   { src: "/carriers/united-home-life.jpg",    alt: "United Home Life" },
+  { src: "/carriers/to-the-rescue-pet-care.png", alt: "To The Rescue Pet Care" },
 ];
 
 const CarrierTicker = () => (

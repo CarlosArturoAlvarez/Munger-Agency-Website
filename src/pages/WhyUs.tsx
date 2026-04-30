@@ -25,10 +25,10 @@ const WhyUsPage = () => (
       <div className="container-narrow px-4 sm:px-6 lg:px-8">
         <h1 className="font-serif text-4xl sm:text-5xl lg:text-6xl font-bold mb-6">
           Why Families Choose{" "}
-          <span className="text-foreground">Munger Agency</span>
+          <span className="text-foreground">the Munger Agency</span>
         </h1>
         <p className="max-w-2xl mx-auto text-lg text-muted-foreground leading-relaxed">
-          We're not tied to one company's products — we're tied to <em>you</em>. As your
+          We're not tied to one company's carrier's products — we're tied to <em>you</em>. As your
           independent advocate, we fight to find the best coverage for your life, your family,
           and your legacy. Tomorrow is never certain. Let's protect what matters most, today.
         </p>
@@ -110,7 +110,7 @@ const WhyUsPage = () => (
       <div className="text-center">
         <h2 className="font-serif text-3xl sm:text-4xl font-bold mb-4">Ready to Get Started?</h2>
         <p className="text-muted-foreground mb-8">Experience the Munger Agency difference for yourself.</p>
-        <a href="https://calendly.com/mungeragency" target="_blank" rel="noopener noreferrer">
+        <a href="https://calendly.com/mungeragency/client-phone-call" target="_blank" rel="noopener noreferrer">
           <Button variant="hero" size="xl">Schedule Your Free Consultation</Button>
         </a>
       </div>

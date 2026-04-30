@@ -11,13 +11,13 @@ const contactCards = [
     icon: Calendar,
     title: "Schedule a Call",
     desc: "Book a free 15-minute introductory call.",
-    link: "https://calendly.com/mungeragency/call",
+    link: "https://calendly.com/mungeragency/client-phone-call?back=1&month=2026-04",
   },
   {
     icon: ClipboardList,
-    title: "Complete a Questionnaire",
+    title: "Complete Your Questionnaire",
     desc: "Help us understand your needs before we meet.",
-    link: "https://form.jotform.com/mungeragency/client-questionnaire",
+    link: "https://form.jotform.com/251737570387163",
   },
   {
     icon: Video,
@@ -172,7 +172,7 @@ const ContactPage = () => {
                 We look forward to talking soon and hope you and your family have a wonderful day!
               </p>
               <div>
-                <a href="https://calendly.com/mungeragency/call" target="_blank" rel="noopener noreferrer">
+                <a href="https://calendly.com/mungeragency/client-phone-call?back=1&month=2026-04" target="_blank" rel="noopener noreferrer">
                   <Button variant="hero" size="lg">Schedule a Call</Button>
                 </a>
               </div>
