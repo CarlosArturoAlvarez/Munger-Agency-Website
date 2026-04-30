@@ -11,55 +11,51 @@ const steps = [
   {
     step: "01",
     title: "Get Your Insurance License",
-    desc: "You'll need a Life & Health insurance license in your state before you can begin selling. The process typically takes 2–4 weeks.",
+    desc: "If you need to get Licensed please follow the Pre-License steps below — here is your path to get Licensed:",
     bullets: [
-      "Register with your state's Department of Insurance",
-      "Complete pre-licensing education (20–40 hrs depending on state)",
-      "Pass the state licensing exam",
-      "Submit your license application and background check",
+      { text: "Purchase your discounted Pre-Licensing Life and Health Insurance Course", href: "https://getyourinsurancelicense.com/munger-agency?am_id=munger8228" },
+      { text: "Schedule your Licensing Exam", href: null },
+      { text: "Take your Exam (it's like taking the ACT in high school — 1 question, 4 possible answers. 70 or above is passing)", href: null },
+      { text: "Most states require you to get your fingerprints — get that completed", href: null },
+      { text: "Go to NIPR and pay for your state license", href: null },
+      { text: "You will need to do a Federal Required Anti-Money Laundering course", href: null },
+      { text: "Purchase your E&O Insurance from Napa-Benefits", href: "https://www.napa-benefits.org/insurance/errors-and-omissions-eando-insurance" },
     ],
-    link: { label: "Find Your State Requirements", href: "https://www.nipr.com/" },
+    note: "CONGRATULATIONS on obtaining your License — now you are ready to get going on our training!!",
+    link: null,
   },
   {
     step: "02",
-    title: "Complete Your NPN Registration",
-    desc: "Your National Producer Number (NPN) is your unique identifier in the insurance industry. You'll need this to get appointed with carriers.",
-    bullets: [
-      "Register at the National Insurance Producer Registry (NIPR)",
-      "Keep your NPN handy — you'll use it on every carrier appointment",
-    ],
-    link: { label: "Get Your NPN at NIPR", href: "https://www.nipr.com/" },
-  },
-  {
-    step: "03",
     title: "Connect With Kathleen",
     desc: "Once you have your license, schedule your onboarding call with Kathleen. She'll walk you through carrier appointments, contracting, and your first steps in the field.",
     bullets: [
-      "Review your product focus and target market",
-      "Get contracted with your first carriers",
-      "Set up your CRM and quoting tools",
-      "Shadow your first client meeting",
+      { text: "Review your product focus and target market", href: null },
+      { text: "Get contracted with your first carriers", href: null },
+      { text: "Set up your CRM and quoting tools", href: null },
+      { text: "Shadow your first client meeting", href: null },
     ],
+    note: null,
     link: { label: "Schedule Onboarding Call", href: "https://calendly.com/mungeragency/interviewcall" },
   },
   {
-    step: "04",
+    step: "03",
     title: "Carrier Appointments",
-    desc: "Munger Agency works with 30+ A-rated carriers. You'll be appointed with the carriers that match your product focus.",
+    desc: "Munger Agency works with 30+ A-rated carriers via Symmetry Financial. You'll be appointed with the carriers that match your product focus.",
     bullets: [
-      "Transamerica, Mutual of Omaha, AIG, and more",
-      "Contracting paperwork submitted through the agency",
-      "E&O insurance required before appointment",
+      { text: "Foresters, SBLI, Transamerica, Mutual of Omaha, AIG, and more", href: null },
+      { text: "Contracting paperwork submitted through our Contracting platform SureLC", href: null },
+      { text: "E&O insurance required before appointments", href: null },
     ],
+    note: null,
     link: null,
   },
 ];
 
 const resources = [
-  { icon: BookOpen, title: "Study Guide", desc: "Recommended pre-licensing course: Kaplan Financial Education", href: "https://www.kaplanfinancial.com/insurance" },
-  { icon: FileText, title: "State Exam Info", desc: "Find exam dates, locations, and requirements for your state", href: "https://www.nipr.com/" },
+  { icon: BookOpen, title: "Pre-Licensing & Study", desc: "Recommended pre-licensing course to get your insurance license", href: "https://getyourinsurancelicense.com/munger-agency?am_id=munger8228" },
+  { icon: FileText, title: "State Exam Info", desc: "Find exam dates, locations, and requirements for your state", href: "https://www.pearsonvue.com/" },
   { icon: Phone, title: "Talk to Kathleen", desc: "Have questions? Book a quick call before you even get started", href: "https://calendly.com/mungeragency/interviewcall" },
-  { icon: Star, title: "E&O Insurance", desc: "Required before carrier appointments — get covered quickly", href: "https://www.eoforless.com/" },
+  { icon: Star, title: "E&O Insurance", desc: "Required before carrier appointments — get covered quickly", href: "https://www.napa-benefits.org/insurance/errors-and-omissions-eando-insurance" },
 ];
 
 // ─── Password Gate ────────────────────────────────────────────────────────────
@@ -134,7 +130,10 @@ const PortalContent = () => (
 
     {/* Steps */}
     <Section>
-      <h2 className="font-serif text-3xl font-bold text-center mb-8">Your Path to Getting Started</h2>
+      <h2 className="font-serif text-3xl font-bold text-center mb-4">Your Path to Getting Started</h2>
+      <p className="text-center text-muted-foreground mb-8">
+        If you are already Licensed please skip to <span className="text-primary font-semibold">Connect with Kathleen.</span>
+      </p>
       <div className="max-w-3xl mx-auto mb-10">
         <img src="/timeline.png" alt="Agent onboarding timeline" className="w-full rounded-xl shadow-lg" />
       </div>
@@ -149,12 +148,17 @@ const PortalContent = () => (
               <p className="text-sm text-muted-foreground leading-relaxed mb-3">{s.desc}</p>
               <ul className="space-y-1.5 mb-4">
                 {s.bullets.map((b) => (
-                  <li key={b} className="flex items-start gap-2 text-sm text-foreground/80">
+                  <li key={b.text} className="flex items-start gap-2 text-sm text-foreground/80">
                     <ChevronRight size={14} className="text-primary shrink-0 mt-0.5" />
-                    {b}
+                    {b.href
+                      ? <a href={b.href} target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">{b.text}</a>
+                      : b.text}
                   </li>
                 ))}
               </ul>
+              {s.note && (
+                <p className="text-sm font-semibold text-primary mb-4">{s.note}</p>
+              )}
               {s.link && (
                 <a href={s.link.href} target="_blank" rel="noopener noreferrer">
                   <Button variant="hero" size="sm">{s.link.label}</Button>

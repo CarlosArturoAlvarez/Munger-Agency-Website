@@ -205,8 +205,8 @@ const HomePage = () => {
         Comprehensive coverage options from 30+ top-rated insurance carriers.
       </p>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
-        {products.map((p) => (
-          <div key={p.name} className="relative overflow-hidden rounded-xl min-h-[180px] flex flex-col justify-end group">
+        {products.map((p, i) => (
+          <div key={p.name} className={`relative overflow-hidden rounded-xl min-h-[180px] flex flex-col justify-end group${i === products.length - 1 ? " lg:col-start-2" : ""}`}>
             {p.img2 ? (
               <div className="absolute inset-0 flex">
                 <img src={p.img} alt={p.name} className="w-1/2 h-full object-cover transition-transform duration-500 group-hover:scale-105" />
