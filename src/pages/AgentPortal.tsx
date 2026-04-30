@@ -134,7 +134,10 @@ const PortalContent = () => (
 
     {/* Steps */}
     <Section>
-      <h2 className="font-serif text-3xl font-bold text-center mb-12">Your Path to Getting Started</h2>
+      <h2 className="font-serif text-3xl font-bold text-center mb-8">Your Path to Getting Started</h2>
+      <div className="max-w-3xl mx-auto mb-10">
+        <img src="/timeline.png" alt="Agent onboarding timeline" className="w-full rounded-xl shadow-lg" />
+      </div>
       <div className="max-w-3xl mx-auto space-y-6">
         {steps.map((s) => (
           <GlassCard key={s.step} className="flex gap-6 items-start">
