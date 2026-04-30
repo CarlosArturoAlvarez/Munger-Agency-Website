@@ -34,7 +34,7 @@ const contactCards = [
 
 const ContactPage = () => {
   const { toast } = useToast();
-  const [form, setForm] = useState({ name: "", email: "", message: "" });
+  const [form, setForm] = useState({ name: "", email: "", phone: "", message: "" });
   const [loading, setLoading] = useState(false);
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -51,13 +51,14 @@ const ContactPage = () => {
         {
           from_name:  form.name,
           from_email: form.email,
+          phone:      form.phone || "Not provided",
           message:    form.message,
           to_email:   "kmunger@mungeragency.com",
         },
         EMAILJS_PUBLIC_KEY
       );
       toast({ title: "Message Sent!", description: "Thank you! We'll get back to you shortly." });
-      setForm({ name: "", email: "", message: "" });
+      setForm({ name: "", email: "", phone: "", message: "" });
     } catch {
       toast({ title: "Error", description: "Something went wrong. Please email Kmunger@mungeragency.com directly.", variant: "destructive" });
     } finally {
@@ -150,6 +151,16 @@ const ContactPage = () => {
                   className="w-full bg-foreground/5 border border-foreground/10 rounded-lg px-4 py-2.5 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/50"
                   placeholder="you@email.com"
                   required
+                />
+              </div>
+              <div>
+                <label className="block text-xs font-sans font-semibold text-foreground/80 mb-1.5">Mobile Phone</label>
+                <input
+                  type="tel"
+                  value={form.phone}
+                  onChange={(e) => setForm({ ...form, phone: e.target.value })}
+                  className="w-full bg-foreground/5 border border-foreground/10 rounded-lg px-4 py-2.5 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/50"
+                  placeholder="(555) 555-5555"
                 />
               </div>
               <div>
