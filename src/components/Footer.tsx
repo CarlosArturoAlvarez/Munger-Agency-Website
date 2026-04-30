@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { Linkedin, Twitter, Mail, Phone, MapPin } from "lucide-react";
+import { Linkedin, Twitter, Instagram, Mail, Phone, MapPin } from "lucide-react";
 
 const Footer = () => (
   <footer className="bg-navy-gradient border-t border-foreground/10">
@@ -82,6 +82,14 @@ const Footer = () => (
               className="glass-card p-2.5 hover:text-primary"
             >
               <Twitter size={18} />
+            </a>
+            <a
+              href="https://www.instagram.com/mungeragency/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="glass-card p-2.5 hover:text-primary"
+            >
+              <Instagram size={18} />
             </a>
           </div>
         </div>
