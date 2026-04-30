@@ -46,7 +46,7 @@ const products = [
   { icon: Home, name: "Mortgage Protection", desc: "Keep your family in their home", img: "https://images.unsplash.com/photo-1570129477492-45c003edd2be?w=600&q=80" },
   { icon: DollarSign, name: "Disability, Critical Illness & Living Benefits", desc: "Income protection when YOU need it most", img: "https://images.unsplash.com/photo-1700190827479-c79e8db4bc88?w=600&q=80" },
   { icon: PiggyBank, name: "Retirement & Annuities", desc: "Guaranteed income streams for retirement", img: "https://images.unsplash.com/photo-1559526324-593bc073d938?w=600&q=80" },
-  { icon: Landmark, name: "Debt Free Life / Infinite Banking", desc: "Build wealth while staying protected", img: "https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?w=600&q=80" },
+  { icon: Landmark, name: "Debt Free Life / Infinite Banking", desc: "Build wealth while staying protected", img: "https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?w=600&q=80", link: "https://form.jotform.com/251487155083157" },
   { icon: FileText, name: "Trust & Will Services", desc: "Protect your estate and your wishes", img: "https://images.unsplash.com/photo-1528752477378-485b46bedcde?w=600&q=80" },
   { icon: Users, name: "Final Expenses", desc: "Dignity and peace of mind for loved ones", img: "https://images.unsplash.com/photo-1528716321680-815a8cdb8cbe?w=600&q=80" },
   { icon: Building, name: "Property & Casualty", desc: "Home, auto, and business coverage", img: "/pic7.png" },
@@ -219,7 +219,7 @@ const HomePage = () => {
               <p.icon size={20} className="text-white mb-2" />
               <h3 className="font-sans font-semibold text-white mb-1">{p.name}</h3>
               <p className="text-xs text-white/75 leading-relaxed mb-2">{p.desc}</p>
-              <a href="https://calendly.com/mungeragency/client-phone-call" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-xs text-primary hover:underline">
+              <a href={p.link ?? "https://calendly.com/mungeragency/client-phone-call"} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-xs text-primary hover:underline">
                 Learn More <ArrowRight size={12} />
               </a>
             </div>
