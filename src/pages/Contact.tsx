@@ -1,10 +1,15 @@
 import { useState } from "react";
+import emailjs from "@emailjs/browser";
 import PageLayout from "@/components/PageLayout";
 import Section from "@/components/Section";
 import GlassCard from "@/components/GlassCard";
 import { Button } from "@/components/ui/button";
 import { useToast } from "@/hooks/use-toast";
 import { Calendar, ClipboardList, Video, Mail, Phone, MapPin, Send } from "lucide-react";
+
+const EMAILJS_SERVICE_ID  = "service_dyr30ti";
+const EMAILJS_TEMPLATE_ID = "template_sm6mt2x";
+const EMAILJS_PUBLIC_KEY  = "x1VD_oV43DJKOKAoE";
 
 const contactCards = [
   {
@@ -39,11 +44,25 @@ const ContactPage = () => {
       return;
     }
     setLoading(true);
-    // Simulate send
-    await new Promise((r) => setTimeout(r, 1000));
-    toast({ title: "Message Sent", description: "Thank you! We'll get back to you shortly." });
-    setForm({ name: "", email: "", message: "" });
-    setLoading(false);
+    try {
+      await emailjs.send(
+        EMAILJS_SERVICE_ID,
+        EMAILJS_TEMPLATE_ID,
+        {
+          from_name:  form.name,
+          from_email: form.email,
+          message:    form.message,
+          to_email:   "kmunger@mungeragency.com",
+        },
+        EMAILJS_PUBLIC_KEY
+      );
+      toast({ title: "Message Sent!", description: "Thank you! We'll get back to you shortly." });
+      setForm({ name: "", email: "", message: "" });
+    } catch {
+      toast({ title: "Error", description: "Something went wrong. Please email Kmunger@mungeragency.com directly.", variant: "destructive" });
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
