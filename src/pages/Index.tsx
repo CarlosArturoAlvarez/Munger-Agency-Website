@@ -7,7 +7,7 @@ import {
   Shield, Globe, MapPin, Award, Users, User, Briefcase,
   Heart, Home, Umbrella, GraduationCap, DollarSign,
   Landmark, PiggyBank, FileText, Building, Car,
-  Calendar, ClipboardList, Video, ArrowRight, Quote, Play, PawPrint
+  Calendar, ClipboardList, Video, ArrowRight, Quote, Play, PawPrint, ShieldCheck
 } from "lucide-react";
 
 const trustItems = [
@@ -52,7 +52,45 @@ const products = [
   { icon: Building, name: "Property & Casualty", desc: "Home, auto, and business coverage", img: "/pic7.png" },
   { icon: Briefcase, name: "Key Person Insurance", desc: "Protect your business when it matters most", img: "https://images.unsplash.com/photo-1549923746-c502d488b3ea?w=600&q=80" },
   { icon: PawPrint, name: "Pet Insurance", desc: "Protect your 4 legged family members", img: "/pet-cats.jpg", img2: "/pet-dog.jpg" },
+  { icon: ShieldCheck, name: "Legal Shield", desc: "Do you have your Will/Trust? Want your ID Protected?", img: "/legalshield.png", imgFit: "contain", purchaseLink: "https://kathleenfisk.legalshieldassociate.com", link: "https://calendly.com/mungeragency/client-phone-call" },
 ];
+
+const ProductCard = ({ p, className = "" }: { p: (typeof products)[number]; className?: string }) => (
+  <div className={`relative overflow-hidden rounded-xl min-h-[180px] flex flex-col justify-end group ${className}`}>
+    {p.img2 ? (
+      <div className="absolute inset-0 flex">
+        <img src={p.img} alt={p.name} className="w-1/2 h-full object-cover transition-transform duration-500 group-hover:scale-105" />
+        <img src={p.img2} alt={p.name} className="w-1/2 h-full object-cover transition-transform duration-500 group-hover:scale-105" />
+      </div>
+    ) : p.imgFit === "contain" ? (
+      <div className="absolute inset-0 bg-white flex items-center justify-center p-8">
+        <img src={p.img} alt={p.name} className="w-full h-full object-contain transition-transform duration-500 group-hover:scale-105" />
+      </div>
+    ) : (
+      <img src={p.img} alt={p.name} className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
+    )}
+    <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/50 to-black/10" />
+    <div className="relative z-10 p-5">
+      <p.icon size={20} className="text-white mb-2" />
+      <h3 className="font-sans font-semibold text-white mb-1">{p.name}</h3>
+      <p className="text-xs text-white/75 leading-relaxed mb-2">{p.desc}</p>
+      {p.purchaseLink ? (
+        <div className="flex items-center gap-3 flex-wrap">
+          <a href={p.purchaseLink} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-xs font-semibold text-white bg-primary hover:bg-primary/90 px-3 py-1.5 rounded-md transition-colors">
+            Ready to Purchase <ArrowRight size={12} />
+          </a>
+          <a href={p.link ?? "https://calendly.com/mungeragency/client-phone-call"} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-xs text-primary hover:underline">
+            Learn More <ArrowRight size={12} />
+          </a>
+        </div>
+      ) : (
+        <a href={p.link ?? "https://calendly.com/mungeragency/client-phone-call"} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-xs text-primary hover:underline">
+          Learn More <ArrowRight size={12} />
+        </a>
+      )}
+    </div>
+  </div>
+);
 
 const steps = [
   {
@@ -205,26 +243,13 @@ const HomePage = () => {
         Comprehensive coverage options from 30+ top-rated insurance carriers.
       </p>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
-        {products.map((p, i) => (
-          <div key={p.name} className={`relative overflow-hidden rounded-xl min-h-[180px] flex flex-col justify-end group${i === products.length - 1 ? " lg:col-start-2" : ""}`}>
-            {p.img2 ? (
-              <div className="absolute inset-0 flex">
-                <img src={p.img} alt={p.name} className="w-1/2 h-full object-cover transition-transform duration-500 group-hover:scale-105" />
-                <img src={p.img2} alt={p.name} className="w-1/2 h-full object-cover transition-transform duration-500 group-hover:scale-105" />
-              </div>
-            ) : (
-              <img src={p.img} alt={p.name} className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
-            )}
-            <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/50 to-black/10" />
-            <div className="relative z-10 p-5">
-              <p.icon size={20} className="text-white mb-2" />
-              <h3 className="font-sans font-semibold text-white mb-1">{p.name}</h3>
-              <p className="text-xs text-white/75 leading-relaxed mb-2">{p.desc}</p>
-              <a href={p.link ?? "https://calendly.com/mungeragency/client-phone-call"} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-xs text-primary hover:underline">
-                Learn More <ArrowRight size={12} />
-              </a>
-            </div>
-          </div>
+        {products.slice(0, -2).map((p) => (
+          <ProductCard key={p.name} p={p} />
+        ))}
+      </div>
+      <div className="flex flex-wrap justify-center gap-5 mt-5">
+        {products.slice(-2).map((p) => (
+          <ProductCard key={p.name} p={p} className="w-full sm:w-[calc(50%-0.625rem)] lg:w-[calc((100%-2.5rem)/3)]" />
         ))}
       </div>
     </Section>
