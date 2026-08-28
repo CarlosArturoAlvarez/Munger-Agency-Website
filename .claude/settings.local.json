@@ -1,7 +1,25 @@
 {
   "permissions": {
     "allow": [
-      "Bash(winget install:*)"
+      "Bash(winget install:*)",
+      "Bash(npm run:*)",
+      "Bash(sed:*)",
+      "Bash(curl -s 'https://www.youtube.com/watch?v=__TRACKED_VAR__')",
+      "Bash(npm install:*)",
+      "Bash(nohup npm:*)",
+      "Bash(echo \"PID: $!\")",
+      "Bash(cp \"c:/Users/carlo/Downloads/pic #10.jpg\" \"C:/Users/carlo/OneDrive/Documents/SMU/Munger Agency Internship/munger-legacy-builder-main/public/pet-cats.jpg\")",
+      "Bash(cp \"c:/Users/carlo/Downloads/pic #11.jpg\" \"C:/Users/carlo/OneDrive/Documents/SMU/Munger Agency Internship/munger-legacy-builder-main/public/pet-dog.jpg\")",
+      "Bash(cp \"c:/Users/carlo/Downloads/pic #1.png\" \"C:/Users/carlo/OneDrive/Documents/SMU/Munger Agency Internship/munger-legacy-builder-main/public/pic1.png\")",
+      "Bash(cp \"c:/Users/carlo/Downloads/pic #2.png\" \"C:/Users/carlo/OneDrive/Documents/SMU/Munger Agency Internship/munger-legacy-builder-main/public/pic2.png\")",
+      "Bash(cp \"c:/Users/carlo/Downloads/pic #7.png\" \"C:/Users/carlo/OneDrive/Documents/SMU/Munger Agency Internship/munger-legacy-builder-main/public/pic7.png\")",
+      "Bash(cp \"c:/Users/carlo/Downloads/pic #13.jpg\" \"C:/Users/carlo/OneDrive/Documents/SMU/Munger Agency Internship/munger-legacy-builder-main/public/pic13.jpg\")",
+      "Bash(cp \"c:/Users/carlo/Downloads/pic #14.jpg\" \"C:/Users/carlo/OneDrive/Documents/SMU/Munger Agency Internship/munger-legacy-builder-main/public/pic14.jpg\")",
+      "WebSearch",
+      "WebFetch(domain:unsplash.com)",
+      "Bash(git add *)",
+      "Bash(git commit -m ' *)",
+      "Bash(git push *)"
     ]
   }
 }
