@@ -96,7 +96,18 @@ const Footer = () => (
       </div>
 
       <div className="mt-12 pt-6 border-t border-foreground/10 text-center text-xs text-muted-foreground">
-        &copy;2025 Munger Agency. All rights reserved.
+        <p>&copy;2025 Munger Agency. All rights reserved.</p>
+        <p className="mt-1">
+          Site by{" "}
+          <a
+            href="https://alvarezbluelabs.netlify.app/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hover:text-foreground transition-colors underline"
+          >
+            Alvarez Blue Labs
+          </a>
+        </p>
       </div>
     </div>
   </footer>
