@@ -97,6 +97,15 @@ const Footer = () => (
 
       <div className="mt-12 pt-6 border-t border-foreground/10 text-center text-xs text-muted-foreground">
         <p>&copy;2025 Munger Agency. All rights reserved.</p>
+        <p className="mt-2 flex items-center justify-center gap-3">
+          <Link to="/privacy" className="hover:text-foreground transition-colors underline">
+            Privacy Policy
+          </Link>
+          <span className="text-foreground/20">|</span>
+          <Link to="/terms" className="hover:text-foreground transition-colors underline">
+            Terms &amp; Conditions
+          </Link>
+        </p>
         <p className="mt-1">
           Site by{" "}
           <a
