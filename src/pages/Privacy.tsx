@@ -79,7 +79,8 @@ const sections = [
           Reply STOP to unsubscribe at any time. Message and data rates may apply.
         </p>
         <p>
-          Message frequency may vary. For help, reply HELP or contact us using the information in Section 9 below.
+          Message frequency may vary. Reply HELP for assistance, or contact us using the information in Section 9
+          below.
         </p>
       </>
     ),
@@ -102,6 +103,11 @@ const sections = [
         <p>
           These third parties are only permitted to use your information as necessary to provide services on our
           behalf and are not authorized to use it for their own independent marketing purposes.
+        </p>
+        <p className="font-semibold text-foreground">
+          No mobile information will be shared with third parties/affiliates for marketing/promotional purposes.
+          All the above categories exclude text messaging originator opt-in data and consent; this information
+          will not be shared with any third parties.
         </p>
       </>
     ),

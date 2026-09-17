@@ -1,9 +1,11 @@
 import { useState } from "react";
 import emailjs from "@emailjs/browser";
+import { Link } from "react-router-dom";
 import PageLayout from "@/components/PageLayout";
 import Section from "@/components/Section";
 import GlassCard from "@/components/GlassCard";
 import { Button } from "@/components/ui/button";
+import { Checkbox } from "@/components/ui/checkbox";
 import { useToast } from "@/hooks/use-toast";
 import { Calendar, ClipboardList, Video, Mail, Phone, MapPin, Send } from "lucide-react";
 
@@ -35,6 +37,8 @@ const contactCards = [
 const ContactPage = () => {
   const { toast } = useToast();
   const [form, setForm] = useState({ name: "", email: "", phone: "", message: "" });
+  const [transactionalConsent, setTransactionalConsent] = useState(false);
+  const [marketingConsent, setMarketingConsent] = useState(false);
   const [loading, setLoading] = useState(false);
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -53,12 +57,16 @@ const ContactPage = () => {
           from_email: form.email,
           phone:      form.phone || "Not provided",
           message:    form.message,
+          transactional_consent: transactionalConsent ? "Yes" : "No",
+          marketing_consent:     marketingConsent ? "Yes" : "No",
           to_email:   "kmunger@mungeragency.com",
         },
         EMAILJS_PUBLIC_KEY
       );
       toast({ title: "Message Sent!", description: "Thank you! We'll get back to you shortly." });
       setForm({ name: "", email: "", phone: "", message: "" });
+      setTransactionalConsent(false);
+      setMarketingConsent(false);
     } catch {
       toast({ title: "Error", description: "Something went wrong. Please email Kmunger@mungeragency.com directly.", variant: "destructive" });
     } finally {
@@ -174,9 +182,51 @@ const ContactPage = () => {
                   required
                 />
               </div>
+
+              <div className="space-y-3 pt-1">
+                <label className="flex items-start gap-2.5 cursor-pointer">
+                  <Checkbox
+                    checked={transactionalConsent}
+                    onCheckedChange={(checked) => setTransactionalConsent(checked === true)}
+                    className="mt-0.5"
+                  />
+                  <span className="text-xs text-muted-foreground leading-relaxed">
+                    I agree to receive transactional text messages from Munger Agency (such as appointment
+                    confirmations, reminders, and follow-up responses) at the phone number provided. Consent is
+                    optional. Message frequency may vary. Message and data rates may apply. Reply HELP for
+                    assistance, reply STOP to opt out.
+                  </span>
+                </label>
+                <label className="flex items-start gap-2.5 cursor-pointer">
+                  <Checkbox
+                    checked={marketingConsent}
+                    onCheckedChange={(checked) => setMarketingConsent(checked === true)}
+                    className="mt-0.5"
+                  />
+                  <span className="text-xs text-muted-foreground leading-relaxed">
+                    I agree to receive marketing text messages from Munger Agency (such as promotional offers,
+                    event invitations, and links to book a call) at the phone number provided. Consent is
+                    optional. Message frequency may vary. Message and data rates may apply. Reply HELP for
+                    assistance, reply STOP to opt out.
+                  </span>
+                </label>
+              </div>
+
               <Button type="submit" variant="hero" size="lg" className="w-full" disabled={loading}>
                 <Send size={16} /> {loading ? "Sending..." : "Send Message"}
               </Button>
+
+              <p className="text-xs text-muted-foreground text-center leading-relaxed">
+                By submitting this form, you acknowledge our{" "}
+                <Link to="/privacy" className="text-primary hover:underline">
+                  Privacy Policy
+                </Link>{" "}
+                and{" "}
+                <Link to="/terms" className="text-primary hover:underline">
+                  Terms &amp; Conditions
+                </Link>
+                .
+              </p>
             </form>
           </GlassCard>
         </div>

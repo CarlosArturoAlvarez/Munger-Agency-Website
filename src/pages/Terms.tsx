@@ -74,18 +74,37 @@ const sections = [
   },
   {
     id: "sms",
-    title: "6. SMS Communications",
+    title: "6. SMS Communications / Mobile Messaging Terms of Service",
     highlight: true,
     body: (
       <>
         <p>
           By submitting a form on the Site or otherwise opting in, you agree to receive automated and manual text
-          messages from Munger Agency related to insurance quotes, follow-up communications, appointment
-          scheduling, and agent recruitment outreach.
+          messages from Munger Agency. By opting into mobile messaging from Munger Agency, you agree to the
+          following terms:
         </p>
-        <p className="font-semibold text-foreground">
-          You may opt out at any time by replying STOP to any text message. Message and data rates may apply.
-        </p>
+        <ul className="list-disc pl-6 space-y-1.5 mt-2">
+          <li>
+            <span className="font-semibold text-foreground">Program Description:</span> We transmit transactional
+            alerts, scheduling reminders, custom insurance quote updates, and promotional coverage options.
+          </li>
+          <li>
+            <span className="font-semibold text-foreground">Frequency:</span> Message frequency varies based on
+            your inquiry volume and interactive account settings.
+          </li>
+          <li>
+            <span className="font-semibold text-foreground">Rates:</span> Message and data rates may apply. Check
+            with your mobile carrier for details.
+          </li>
+          <li>
+            <span className="font-semibold text-foreground">Opt-Out:</span> Reply STOP at any time to opt out. A
+            confirmation message will be sent to verify your removal.
+          </li>
+          <li>
+            <span className="font-semibold text-foreground">Help:</span> Reply HELP for service support
+            information, or contact our team directly at the information in Section 12 below.
+          </li>
+        </ul>
         <p>
           For more detail on how we collect, use, and share your information in connection with SMS and other
           communications, please see our{" "}
