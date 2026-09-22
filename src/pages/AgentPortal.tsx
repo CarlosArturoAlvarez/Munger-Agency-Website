@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Lock, CheckCircle, BookOpen, FileText, Phone, Star, ChevronRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { useSeo } from "@/hooks/use-seo";
 import PageLayout from "@/components/PageLayout";
 import Section from "@/components/Section";
 import GlassCard from "@/components/GlassCard";
@@ -209,6 +210,11 @@ const PortalContent = () => (
 const AgentPortal = () => {
   const [unlocked, setUnlocked] = useState(
     sessionStorage.getItem("agent_portal_access") === "true"
+  );
+  useSeo(
+    "Agent Portal — Munger Agency",
+    "Private onboarding and training portal for Munger Agency's licensed insurance agents.",
+    { noindex: true }
   );
 
   if (!unlocked) return <PasswordGate onUnlock={() => setUnlocked(true)} />;

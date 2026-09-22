@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useSeo } from "@/hooks/use-seo";
 import PageLayout from "@/components/PageLayout";
 import Section from "@/components/Section";
 import GlassCard from "@/components/GlassCard";
@@ -126,6 +127,10 @@ const videos = [
 
 const HomePage = () => {
   const [activeVideo, setActiveVideo] = useState(0);
+  useSeo(
+    "Munger Agency — Life Insurance & Legacy Planning in Dallas, TX",
+    "Independent life insurance agency serving families, individuals, and businesses nationwide with 30+ A-rated carriers and 20+ years of experience. Term, whole, universal life, annuities, and more."
+  );
   return (
   <PageLayout>
     {/* Hero */}

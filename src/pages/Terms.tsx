@@ -1,3 +1,4 @@
+import { useSeo } from "@/hooks/use-seo";
 import PageLayout from "@/components/PageLayout";
 import Section from "@/components/Section";
 import GlassCard from "@/components/GlassCard";
@@ -202,7 +203,12 @@ const sections = [
   },
 ];
 
-const TermsPage = () => (
+const TermsPage = () => {
+  useSeo(
+    "Terms & Conditions — Munger Agency",
+    "The terms governing your use of the Munger Agency website, including our SMS/text messaging program terms and opt-out instructions."
+  );
+  return (
   <PageLayout>
     <section className="lion-watermark py-16 sm:py-20 text-center">
       <div className="container-narrow px-4 sm:px-6 lg:px-8">
@@ -234,6 +240,7 @@ const TermsPage = () => (
       </div>
     </Section>
   </PageLayout>
-);
+  );
+};
 
 export default TermsPage;

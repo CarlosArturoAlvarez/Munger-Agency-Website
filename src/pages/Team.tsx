@@ -1,3 +1,4 @@
+import { useSeo } from "@/hooks/use-seo";
 import CarrierTicker from "@/components/CarrierTicker";
 import PageLayout from "@/components/PageLayout";
 import Section from "@/components/Section";
@@ -43,7 +44,12 @@ const partners = [
   { name: "C-Suite Network", desc: "The most powerful network of C-Suite leaders", link: "https://c-suitenetwork.com/", img: "/partners/csuite-logo.png" },
 ];
 
-const TeamPage = () => (
+const TeamPage = () => {
+  useSeo(
+    "Our Team & Trusted Partners — Munger Agency",
+    "Meet Kathleen Munger Fisk and the network of carriers, attorneys, and financial professionals Munger Agency trusts to serve families nationwide."
+  );
+  return (
   <PageLayout>
     <section className="lion-watermark py-16 sm:py-20 text-center">
       <div className="container-narrow px-4 sm:px-6 lg:px-8">
@@ -164,6 +170,7 @@ const TeamPage = () => (
       </div>
     </Section>
   </PageLayout>
-);
+  );
+};
 
 export default TeamPage;

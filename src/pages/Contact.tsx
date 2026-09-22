@@ -1,6 +1,7 @@
 import { useState } from "react";
 import emailjs from "@emailjs/browser";
 import { Link } from "react-router-dom";
+import { useSeo } from "@/hooks/use-seo";
 import PageLayout from "@/components/PageLayout";
 import Section from "@/components/Section";
 import GlassCard from "@/components/GlassCard";
@@ -40,6 +41,10 @@ const ContactPage = () => {
   const [transactionalConsent, setTransactionalConsent] = useState(false);
   const [marketingConsent, setMarketingConsent] = useState(false);
   const [loading, setLoading] = useState(false);
+  useSeo(
+    "Contact Munger Agency — Get a Free Life Insurance Consultation",
+    "Reach the Munger Agency team in Dallas, TX for a free life insurance and legacy planning consultation. Schedule a call, Zoom meeting, or complete our questionnaire."
+  );
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();

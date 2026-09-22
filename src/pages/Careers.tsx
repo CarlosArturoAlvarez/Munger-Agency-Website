@@ -1,6 +1,7 @@
 import { useState } from "react";
 import emailjs from "@emailjs/browser";
 import { Link } from "react-router-dom";
+import { useSeo } from "@/hooks/use-seo";
 import PageLayout from "@/components/PageLayout";
 import Section from "@/components/Section";
 import GlassCard from "@/components/GlassCard";
@@ -65,6 +66,11 @@ const CareersPage = () => {
     transactionalConsent: false,
     marketingConsent: false,
   });
+
+  useSeo(
+    "Insurance Agent Careers — Join Munger Agency (Remote, 1099)",
+    "Build your own insurance agency with Munger Agency: 100% remote, uncapped income, mentorship, and support for licensed and unlicensed agents nationwide."
+  );
 
   const update = (field: string, value: string | boolean | string[]) =>
     setForm((prev) => ({ ...prev, [field]: value }));

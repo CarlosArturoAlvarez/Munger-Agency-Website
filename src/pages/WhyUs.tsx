@@ -1,3 +1,4 @@
+import { useSeo } from "@/hooks/use-seo";
 import PageLayout from "@/components/PageLayout";
 import Section from "@/components/Section";
 import GlassCard from "@/components/GlassCard";
@@ -18,7 +19,12 @@ const values = [
   { icon: Zap, name: "We Have Fun and We Get Stuff Done" },
 ];
 
-const WhyUsPage = () => (
+const WhyUsPage = () => {
+  useSeo(
+    "Why Choose Munger Agency — Independent Life Insurance Agents",
+    "See what sets Munger Agency apart: relationship-first service, 30+ A-rated carriers, and a values-driven team that puts families before sales."
+  );
+  return (
   <PageLayout>
     {/* Hero */}
     <section className="lion-watermark py-16 sm:py-20 text-center">
@@ -116,6 +122,7 @@ const WhyUsPage = () => (
       </div>
     </Section>
   </PageLayout>
-);
+  );
+};
 
 export default WhyUsPage;

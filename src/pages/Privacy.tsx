@@ -1,3 +1,4 @@
+import { useSeo } from "@/hooks/use-seo";
 import PageLayout from "@/components/PageLayout";
 import Section from "@/components/Section";
 import GlassCard from "@/components/GlassCard";
@@ -191,7 +192,12 @@ const sections = [
   },
 ];
 
-const PrivacyPage = () => (
+const PrivacyPage = () => {
+  useSeo(
+    "Privacy Policy — Munger Agency",
+    "How Munger Agency collects, uses, and protects your personal information, including our SMS/text messaging consent practices."
+  );
+  return (
   <PageLayout>
     <section className="lion-watermark py-16 sm:py-20 text-center">
       <div className="container-narrow px-4 sm:px-6 lg:px-8">
@@ -223,6 +229,7 @@ const PrivacyPage = () => (
       </div>
     </Section>
   </PageLayout>
-);
+  );
+};
 
 export default PrivacyPage;

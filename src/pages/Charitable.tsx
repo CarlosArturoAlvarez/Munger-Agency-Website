@@ -1,3 +1,4 @@
+import { useSeo } from "@/hooks/use-seo";
 import PageLayout from "@/components/PageLayout";
 import Section from "@/components/Section";
 import { Button } from "@/components/ui/button";
@@ -44,7 +45,12 @@ const initiatives = [
   },
 ];
 
-const CharitablePage = () => (
+const CharitablePage = () => {
+  useSeo(
+    "Giving Back — Munger Agency's Charitable Initiatives",
+    "Munger Agency supports Prostate Cancer awareness, New Friends New Life, the North Texas Food Bank, and the SPCA of Texas as part of our commitment to the community."
+  );
+  return (
   <PageLayout>
     <section className="lion-watermark py-16 sm:py-20 text-center">
       <div className="container-narrow px-4 sm:px-6 lg:px-8">
@@ -106,6 +112,7 @@ const CharitablePage = () => (
       </div>
     </Section>
   </PageLayout>
-);
+  );
+};
 
 export default CharitablePage;

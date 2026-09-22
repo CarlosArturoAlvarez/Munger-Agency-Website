@@ -1,3 +1,4 @@
+import { useSeo } from "@/hooks/use-seo";
 import PageLayout from "@/components/PageLayout";
 import Section from "@/components/Section";
 import GlassCard from "@/components/GlassCard";
@@ -5,7 +6,12 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight, Heart } from "lucide-react";
 import { Link } from "react-router-dom";
 
-const OurWhyPage = () => (
+const OurWhyPage = () => {
+  useSeo(
+    "Our Why — The Story Behind Munger Agency",
+    "Kathleen Munger Fisk's family story is why Munger Agency exists: helping families secure life insurance and legacy planning so they never face loss without protection."
+  );
+  return (
   <PageLayout>
     {/* Hero */}
     <section className="lion-watermark py-16 sm:py-20 text-center">
@@ -149,6 +155,7 @@ const OurWhyPage = () => (
       </div>
     </Section>
   </PageLayout>
-);
+  );
+};
 
 export default OurWhyPage;
