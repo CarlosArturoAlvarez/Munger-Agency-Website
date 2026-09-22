@@ -1,5 +1,6 @@
 import { useState } from "react";
 import emailjs from "@emailjs/browser";
+import { Link } from "react-router-dom";
 import PageLayout from "@/components/PageLayout";
 import Section from "@/components/Section";
 import GlassCard from "@/components/GlassCard";
@@ -61,6 +62,8 @@ const CareersPage = () => {
     authorizedToWork: false,
     backgroundCheck: false,
     source: "",
+    transactionalConsent: false,
+    marketingConsent: false,
   });
 
   const update = (field: string, value: string | boolean | string[]) =>
@@ -98,13 +101,15 @@ const CareersPage = () => {
           source:          form.source || "N/A",
           authorized:      form.authorizedToWork ? "Yes" : "No",
           background:      form.backgroundCheck ? "Yes" : "No",
+          transactional_consent: form.transactionalConsent ? "Yes" : "No",
+          marketing_consent:     form.marketingConsent ? "Yes" : "No",
           to_email:        CAREERS_EMAIL,
           submitted_at:    new Date().toLocaleString("en-US", { timeZone: "America/Chicago" }),
         },
         EMAILJS_PUBLIC_KEY
       );
       toast({ title: "Application Sent! 🎉", description: "Thank you! Kathleen will be in touch with you soon." });
-      setForm({ fullName: "", email: "", phone: "", statesLicensed: "", npn: "", licenseTypes: [], experience: "", military: "", contractor: false, authorizedToWork: false, backgroundCheck: false, source: "" });
+      setForm({ fullName: "", email: "", phone: "", statesLicensed: "", npn: "", licenseTypes: [], experience: "", military: "", contractor: false, authorizedToWork: false, backgroundCheck: false, source: "", transactionalConsent: false, marketingConsent: false });
     } catch {
       toast({ title: "Error", description: "Something went wrong. Please try again or email mungeragency@yahoo.com directly.", variant: "destructive" });
     } finally {
@@ -359,9 +364,52 @@ const CareersPage = () => {
               </label>
             </div>
 
+            {/* SMS consent checkboxes */}
+            <div className="space-y-3 pt-1">
+              <label className="flex items-start gap-2 cursor-pointer">
+                <input
+                  type="checkbox"
+                  checked={form.transactionalConsent}
+                  onChange={(e) => update("transactionalConsent", e.target.checked)}
+                  className="mt-0.5 rounded border-foreground/20 bg-foreground/5 text-primary focus:ring-primary/50"
+                />
+                <span className="text-xs text-muted-foreground leading-relaxed">
+                  I agree to receive transactional text messages from Munger Agency (such as appointment
+                  confirmations, reminders, and follow-up responses) at the phone number provided. Consent is
+                  optional. Message frequency may vary. Message and data rates may apply. Reply HELP for
+                  assistance, reply STOP to opt out.
+                </span>
+              </label>
+              <label className="flex items-start gap-2 cursor-pointer">
+                <input
+                  type="checkbox"
+                  checked={form.marketingConsent}
+                  onChange={(e) => update("marketingConsent", e.target.checked)}
+                  className="mt-0.5 rounded border-foreground/20 bg-foreground/5 text-primary focus:ring-primary/50"
+                />
+                <span className="text-xs text-muted-foreground leading-relaxed">
+                  I agree to receive marketing text messages from Munger Agency (such as promotional offers,
+                  event invitations, and links to book a call) at the phone number provided. Consent is
+                  optional. Message frequency may vary. Message and data rates may apply. Reply HELP for
+                  assistance, reply STOP to opt out.
+                </span>
+              </label>
+            </div>
+
             <Button type="submit" variant="hero" size="lg" className="w-full" disabled={loading}>
               {loading ? "Submitting..." : "Submit My Application"}
             </Button>
+            <p className="text-xs text-muted-foreground text-center leading-relaxed">
+              By submitting this form, you acknowledge our{" "}
+              <Link to="/privacy" className="text-primary hover:underline">
+                Privacy Policy
+              </Link>{" "}
+              and{" "}
+              <Link to="/terms" className="text-primary hover:underline">
+                Terms &amp; Conditions
+              </Link>
+              .
+            </p>
             <p className="text-center text-xs text-muted-foreground">
               Or if you'd prefer to speak first —{" "}
               <a
