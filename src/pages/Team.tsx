@@ -42,6 +42,7 @@ const partners = [
   { name: "Cadence Bank Wealth Leadership Team", desc: "Wealth management, Dallas", link: "https://cadencebank.com/insights-and-articles/business/podcast-episode-10", img: "/partners/Cadence Bank Wealth.avif" },
   { name: "LeadHERship Global", desc: "Women's leadership and empowerment", link: "https://leadhershipglobal.com/", img: "/partners/LeadHERship.avif" },
   { name: "C-Suite Network", desc: "The most powerful network of C-Suite leaders", link: "https://c-suitenetwork.com/", img: "/partners/csuite-logo.png" },
+  { name: "Coalition", desc: "Trusted Vetted businesses to help with your business", link: "https://www.thecoalition.biz/", img: "/partners/Coalition.png", imgFit: "contain" },
 ];
 
 const TeamPage = () => {
@@ -107,7 +108,7 @@ const TeamPage = () => {
             <div className="flex h-40">
               <div className="w-40 shrink-0 bg-foreground/5 overflow-hidden">
                 {p.img
-                  ? <img src={p.img} alt={p.name} className="w-full h-full object-cover object-center" />
+                  ? <img src={p.img} alt={p.name} className={`w-full h-full object-center ${p.imgFit === "contain" ? "object-contain p-3" : "object-cover"}`} />
                   : <div className="w-full h-full flex items-center justify-center"><User size={32} className="text-muted-foreground/30" /></div>}
               </div>
               <div className="flex flex-col justify-center px-5 py-4">
