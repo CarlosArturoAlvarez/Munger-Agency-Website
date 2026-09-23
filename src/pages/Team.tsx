@@ -42,7 +42,7 @@ const partners = [
   { name: "Cadence Bank Wealth Leadership Team", desc: "Wealth management, Dallas", link: "https://cadencebank.com/insights-and-articles/business/podcast-episode-10", img: "/partners/Cadence Bank Wealth.avif" },
   { name: "LeadHERship Global", desc: "Women's leadership and empowerment", link: "https://leadhershipglobal.com/", img: "/partners/LeadHERship.avif" },
   { name: "C-Suite Network", desc: "The most powerful network of C-Suite leaders", link: "https://c-suitenetwork.com/", img: "/partners/csuite-logo.png" },
-  { name: "Coalition", desc: "Trusted Vetted businesses to help with your business", link: "https://www.thecoalition.biz/", img: "/partners/Coalition.png", imgFit: "contain" },
+  { name: "Coalition", desc: "Trusted Vetted businesses to help with your business", link: "https://www.thecoalition.biz/", img: "/partners/Coalition.png", imgFit: "contain", imgBg: "black" },
 ];
 
 const TeamPage = () => {
@@ -102,11 +102,11 @@ const TeamPage = () => {
     {/* Partners */}
     <Section className="bg-navy-deep/30">
       <h2 className="font-serif text-3xl sm:text-4xl font-bold text-center mb-12">Our Trusted Partners</h2>
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+      <div className="flex flex-wrap justify-center gap-5">
         {partners.map((p) => (
-          <GlassCard key={p.name} className="!p-0 overflow-hidden">
+          <GlassCard key={p.name} className="!p-0 overflow-hidden w-full sm:w-[calc(50%-0.625rem)]">
             <div className="flex h-40">
-              <div className="w-40 shrink-0 bg-foreground/5 overflow-hidden">
+              <div className={`w-40 shrink-0 overflow-hidden ${p.imgBg === "black" ? "bg-black" : "bg-foreground/5"}`}>
                 {p.img
                   ? <img src={p.img} alt={p.name} className={`w-full h-full object-center ${p.imgFit === "contain" ? "object-contain p-3" : "object-cover"}`} />
                   : <div className="w-full h-full flex items-center justify-center"><User size={32} className="text-muted-foreground/30" /></div>}
